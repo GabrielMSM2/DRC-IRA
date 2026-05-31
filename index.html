@@ -1,0 +1,1980 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Doença Renal Crônica e Aguda em Cães e Gatos</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0d2340;
+    --teal: #1a6b72;
+    --teal-light: #2a8c95;
+    --gold: #c9943a;
+    --gold-light: #e8b96a;
+    --cream: #f7f3ec;
+    --warm-white: #fdfaf5;
+    --text-dark: #1a1a2e;
+    --text-mid: #3d4f5c;
+    --text-light: #6b7f8c;
+    --border: #ddd5c8;
+    --sidebar-w: 280px;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Source Serif 4', Georgia, serif;
+    background: var(--warm-white);
+    color: var(--text-dark);
+    line-height: 1.8;
+    font-size: 16px;
+    text-align: justify;
+    overflow-x: hidden;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  /* ── SIDEBAR ── */
+  #sidebar {
+    position: fixed;
+    left: 0; top: 0; bottom: 0;
+    width: var(--sidebar-w);
+    background: var(--navy);
+    overflow-y: auto;
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 2rem;
+  }
+
+  .sidebar-logo {
+    padding: 2rem 1.5rem 1.5rem;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+  }
+  .sidebar-logo .logo-symbol {
+    font-size: 2.2rem;
+    line-height: 1;
+    margin-bottom: 0.5rem;
+    color: var(--gold);
+    font-family: 'Playfair Display', serif;
+  }
+  .sidebar-logo .logo-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.85);
+    line-height: 1.4;
+    font-style: italic;
+  }
+  .sidebar-logo .logo-sub {
+    font-size: 0.7rem;
+    color: var(--gold-light);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin-top: 0.4rem;
+  }
+
+  .nav-section {
+    padding: 1rem 0;
+  }
+  .nav-label {
+    font-size: 0.62rem;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--gold);
+    padding: 0.5rem 1.5rem 0.3rem;
+    font-family: 'Source Serif 4', serif;
+    font-weight: 600;
+  }
+  .nav-item {
+    display: block;
+    padding: 0.5rem 1.5rem 0.5rem 2rem;
+    font-size: 0.8rem;
+    color: rgba(255,255,255,0.65);
+    text-decoration: none;
+    border-left: 2px solid transparent;
+    transition: all 0.2s;
+    cursor: pointer;
+    line-height: 1.4;
+    font-family: 'Source Serif 4', serif;
+  }
+  .nav-item:hover, .nav-item.active {
+    color: #fff;
+    border-left-color: var(--gold);
+    background: rgba(255,255,255,0.04);
+    padding-left: 2.2rem;
+  }
+
+  /* ── MAIN ── */
+  #main {
+    margin-left: var(--sidebar-w);
+    min-height: 100vh;
+  }
+
+  /* COVER */
+  .cover {
+    background: linear-gradient(135deg, var(--navy) 0%, #0f3355 40%, var(--teal) 100%);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 5rem 6rem 5rem 5rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .cover::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 80% 50%, rgba(201,148,58,0.08) 0%, transparent 70%);
+  }
+  .cover::after {
+    content: '';
+    position: absolute;
+    right: -100px; top: -100px;
+    width: 600px; height: 600px;
+    border-radius: 50%;
+    border: 1px solid rgba(255,255,255,0.04);
+  }
+  .cover-eyebrow {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.22em;
+    color: var(--gold);
+    margin-bottom: 1.5rem;
+    font-family: 'Source Serif 4', serif;
+    font-weight: 600;
+  }
+  .cover-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.4rem, 4vw, 3.8rem);
+    font-weight: 700;
+    color: #fff;
+    line-height: 1.15;
+    max-width: 680px;
+    margin-bottom: 0.6rem;
+  }
+  .cover-subtitle {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.1rem, 2vw, 1.5rem);
+    font-weight: 400;
+    font-style: italic;
+    color: var(--gold-light);
+    margin-bottom: 2.5rem;
+    max-width: 580px;
+  }
+  .cover-desc {
+    color: rgba(255,255,255,0.65);
+    font-size: 0.95rem;
+    max-width: 500px;
+    line-height: 1.7;
+    font-weight: 300;
+    margin-bottom: 3rem;
+  }
+  .cover-badges {
+    display: flex; gap: 1rem; flex-wrap: wrap;
+  }
+  .cover-author {
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(255,255,255,0.12);
+    max-width: 580px;
+    text-align: left;
+  }
+  .cover-author .author-label {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--gold);
+    font-family: 'Source Serif 4', serif;
+    font-weight: 600;
+    margin-bottom: 0.4rem;
+  }
+  .cover-author .author-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    font-style: italic;
+    color: #fff;
+    line-height: 1.2;
+  }
+  .cover-badge {
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.15);
+    color: rgba(255,255,255,0.8);
+    padding: 0.4rem 1rem;
+    font-size: 0.75rem;
+    letter-spacing: 0.06em;
+    border-radius: 2px;
+    font-family: 'Source Serif 4', serif;
+  }
+  .cover-ornament {
+    position: absolute;
+    right: 5rem; bottom: 4rem;
+    font-family: 'Playfair Display', serif;
+    font-size: 12rem;
+    font-style: italic;
+    color: rgba(255,255,255,0.025);
+    line-height: 1;
+    pointer-events: none;
+    user-select: none;
+  }
+
+  /* CHAPTER SECTIONS */
+  .chapter {
+    padding: 5rem 5rem 5rem;
+    border-bottom: 1px solid var(--border);
+    max-width: 860px;
+  }
+  .chapter:nth-child(even) {
+    background: var(--cream);
+  }
+
+  .chapter-header {
+    margin-bottom: 2.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border);
+    position: relative;
+  }
+  .chapter-num {
+    font-size: 0.68rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--teal);
+    font-weight: 600;
+    margin-bottom: 0.6rem;
+    font-family: 'Source Serif 4', serif;
+  }
+  .chapter-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.6rem, 3vw, 2.4rem);
+    font-weight: 700;
+    color: var(--navy);
+    line-height: 1.2;
+    text-align: left;
+  }
+  .chapter-title-line {
+    width: 3rem;
+    height: 3px;
+    background: var(--gold);
+    margin-top: 1rem;
+  }
+
+  /* TYPOGRAPHY */
+  .chapter p {
+    margin-bottom: 1.3rem;
+    color: var(--text-mid);
+    font-weight: 300;
+    font-size: 1.02rem;
+    text-align: justify;
+    -webkit-hyphens: auto;
+    hyphens: auto;
+  }
+  .chapter h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--navy);
+    margin: 2.2rem 0 0.8rem;
+  }
+  .chapter h4 {
+    font-family: 'Source Serif 4', serif;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--teal);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin: 1.8rem 0 0.6rem;
+  }
+
+  /* LISTS */
+  .chapter ul {
+    list-style: none;
+    margin: 0.5rem 0 1.3rem 0;
+  }
+  .chapter ul li {
+    padding: 0.25rem 0 0.25rem 1.6rem;
+    position: relative;
+    color: var(--text-mid);
+    font-size: 1rem;
+    font-weight: 300;
+  }
+  .chapter ul li::before {
+    content: '—';
+    position: absolute;
+    left: 0;
+    color: var(--gold);
+    font-weight: 600;
+  }
+
+  .chapter ol {
+    margin: 0.5rem 0 1.3rem 1.5rem;
+  }
+  .chapter ol li {
+    padding: 0.25rem 0;
+    color: var(--text-mid);
+    font-size: 1rem;
+    font-weight: 300;
+  }
+
+  /* HIGHLIGHT BOXES */
+  .callout {
+    border-left: 3px solid var(--teal);
+    background: rgba(26,107,114,0.06);
+    padding: 1.2rem 1.5rem;
+    margin: 1.8rem 0;
+    border-radius: 0 4px 4px 0;
+  }
+  .callout.gold {
+    border-left-color: var(--gold);
+    background: rgba(201,148,58,0.06);
+  }
+  .callout.navy {
+    border-left-color: var(--navy);
+    background: rgba(13,35,64,0.05);
+  }
+  .callout p { margin-bottom: 0; font-size: 0.97rem; }
+
+  /* CHECKLIST */
+  .checklist {
+    margin: 1rem 0 1.5rem;
+  }
+  .checklist-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.8rem;
+    padding: 0.35rem 0;
+    color: var(--text-mid);
+    font-size: 1rem;
+    font-weight: 300;
+  }
+  .checklist-item .check {
+    color: var(--teal);
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 0.1rem;
+  }
+
+  /* COMPARISON TABLE */
+  .comparison-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0 2rem;
+    font-size: 0.9rem;
+  }
+  .comparison-table th {
+    background: var(--navy);
+    color: #fff;
+    padding: 0.8rem 1rem;
+    text-align: left;
+    font-family: 'Source Serif 4', serif;
+    font-weight: 600;
+    font-size: 0.82rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+  .comparison-table th:first-child { border-radius: 4px 0 0 0; }
+  .comparison-table th:last-child { border-radius: 0 4px 0 0; }
+  .comparison-table td {
+    padding: 0.7rem 1rem;
+    border-bottom: 1px solid var(--border);
+    color: var(--text-mid);
+    font-weight: 300;
+    vertical-align: top;
+  }
+  .comparison-table tr:nth-child(even) td { background: rgba(0,0,0,0.02); }
+  .comparison-table tr:hover td { background: rgba(26,107,114,0.04); }
+  .comparison-table td:first-child {
+    font-weight: 600;
+    color: var(--navy);
+    font-size: 0.88rem;
+  }
+
+  /* IRIS STAGES */
+  .stages-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    margin: 1.5rem 0;
+  }
+  .stage-card {
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 1.2rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .stage-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+  }
+  .stage-card.s1::before { background: #4caf83; }
+  .stage-card.s2::before { background: #e8b96a; }
+  .stage-card.s3::before { background: #e67c3a; }
+  .stage-card.s4::before { background: #c0392b; }
+  .stage-card .stage-num {
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--text-light);
+    font-weight: 600;
+    margin-bottom: 0.3rem;
+  }
+  .stage-card .stage-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    color: var(--navy);
+    font-weight: 600;
+  }
+  .stage-card .stage-detail {
+    font-size: 0.85rem;
+    color: var(--text-mid);
+    margin-top: 0.5rem;
+    font-weight: 300;
+  }
+
+  /* FLOWCHART */
+  .flowchart {
+    background: linear-gradient(135deg, rgba(13,35,64,0.03), rgba(26,107,114,0.04));
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 2rem;
+    margin: 1.5rem 0;
+    font-size: 0.92rem;
+  }
+  .flowchart-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 1.2rem;
+    padding-bottom: 0.6rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .flow-step {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.8rem;
+    margin-bottom: 0.3rem;
+  }
+  .flow-connector {
+    color: var(--teal);
+    font-size: 1.1rem;
+    padding-left: 1.4rem;
+    margin-bottom: 0.1rem;
+  }
+  .flow-box {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    padding: 0.45rem 0.9rem;
+    color: var(--text-mid);
+    font-weight: 300;
+    flex: 1;
+  }
+  .flow-box.decision {
+    border-color: var(--teal);
+    background: rgba(26,107,114,0.04);
+    color: var(--teal);
+    font-weight: 600;
+    font-size: 0.88rem;
+  }
+  .flow-box.action {
+    border-color: var(--gold);
+    background: rgba(201,148,58,0.05);
+  }
+  .flow-indent { padding-left: 2rem; }
+
+  /* UPC TABLE */
+  .upc-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.8rem;
+    margin: 1rem 0;
+  }
+  .upc-card {
+    border-radius: 4px;
+    padding: 1rem;
+    text-align: center;
+    border: 1px solid var(--border);
+  }
+  .upc-card.safe { background: rgba(76,175,131,0.08); border-color: rgba(76,175,131,0.3); }
+  .upc-card.border { background: rgba(232,185,106,0.1); border-color: rgba(232,185,106,0.4); }
+  .upc-card.danger { background: rgba(192,57,43,0.07); border-color: rgba(192,57,43,0.25); }
+  .upc-label { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-light); font-weight: 600; margin-bottom: 0.3rem; }
+  .upc-value { font-family: 'Playfair Display', serif; font-size: 1.3rem; font-weight: 700; color: var(--navy); }
+
+  /* DRUG CARD */
+  .drug-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.8rem; margin: 1rem 0; }
+  .drug-card {
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 1rem 1.2rem;
+    background: #fff;
+  }
+  .drug-name { font-weight: 700; color: var(--navy); font-size: 0.95rem; font-family: 'Playfair Display', serif; }
+  .drug-class { font-size: 0.75rem; color: var(--teal); text-transform: uppercase; letter-spacing: 0.08em; margin: 0.2rem 0 0.5rem; font-weight: 600; }
+  .drug-note { font-size: 0.85rem; color: var(--text-mid); font-weight: 300; }
+
+  /* QUICK REF */
+  .quick-ref-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.2rem; margin: 1.5rem 0; }
+  .quick-card {
+    background: var(--navy);
+    border-radius: 6px;
+    padding: 1.5rem;
+    color: #fff;
+  }
+  .quick-card h4 {
+    color: var(--gold);
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    text-transform: none;
+    letter-spacing: 0;
+    font-style: italic;
+    margin-bottom: 0.8rem;
+  }
+  .quick-card ul { list-style: none; }
+  .quick-card ul li {
+    padding: 0.2rem 0 0.2rem 1.2rem;
+    color: rgba(255,255,255,0.8);
+    font-size: 0.88rem;
+    font-weight: 300;
+  }
+  .quick-card ul li::before { content: '✓'; color: var(--gold-light); left: 0; font-weight: 700; }
+
+  /* PROGNOSIS SPLIT */
+  .prognosis-split { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 1.5rem 0; }
+  .prog-box { border-radius: 4px; padding: 1.2rem; border: 1px solid var(--border); }
+  .prog-box.favorable { background: rgba(76,175,131,0.05); border-color: rgba(76,175,131,0.3); }
+  .prog-box.unfavorable { background: rgba(192,57,43,0.04); border-color: rgba(192,57,43,0.2); }
+  .prog-label { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.15em; font-weight: 700; margin-bottom: 0.6rem; }
+  .prog-box.favorable .prog-label { color: #4caf83; }
+  .prog-box.unfavorable .prog-label { color: #c0392b; }
+  .prog-box ul { list-style: none; }
+  .prog-box ul li { padding: 0.2rem .1; font-size: 0.9rem; color: var(--text-mid); font-weight: 300; }
+
+  /* MESSAGES */
+  .five-messages { counter-reset: msg; margin: 1.5rem 0; }
+  .msg-item {
+    counter-increment: msg;
+    display: flex;
+    gap: 1.2rem;
+    margin-bottom: 1.2rem;
+    align-items: flex-start;
+  }
+  .msg-num {
+    background: var(--navy);
+    color: var(--gold);
+    width: 2.2rem; height: 2.2rem;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 0.1rem;
+  }
+  .msg-content strong { font-weight: 700; color: var(--navy); display: block; font-size: 0.97rem; }
+  .msg-content span { font-size: 0.9rem; color: var(--text-mid); font-weight: 300; }
+
+  /* BP TABLE */
+  .bp-table { width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: 0.9rem; }
+  .bp-table th { background: var(--teal); color: #fff; padding: 0.7rem 1rem; text-align: left; font-size: 0.8rem; }
+  .bp-table td { padding: 0.65rem 1rem; border-bottom: 1px solid var(--border); color: var(--text-mid); font-weight: 300; }
+  .bp-table tr:hover td { background: rgba(26,107,114,0.04); }
+
+  /* CLOSE BTN */
+  #sidebar-toggle {
+    display: none;
+    position: fixed;
+    top: 1rem; left: 1rem;
+    background: var(--navy);
+    color: #fff;
+    border: none;
+    padding: 0.55rem 0.85rem;
+    cursor: pointer;
+    z-index: 200;
+    font-size: 1.15rem;
+    line-height: 1;
+    border-radius: 6px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.25);
+  }
+
+  /* BACKDROP (mobile, quando a barra lateral está aberta) */
+  #sidebar-backdrop {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.45);
+    z-index: 90;
+  }
+  #sidebar-backdrop.show { display: block; }
+
+  /* Tabelas roláveis horizontalmente em telas estreitas (failsafe) */
+  .table-wrap { width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+
+  /* ───── NOTEBOOK / LAPTOP MENOR ───── */
+  @media (max-width: 1200px) {
+    .chapter { padding: 4rem 3.5rem; }
+    .cover { padding: 4.5rem 4rem; }
+  }
+
+  /* ───── TABLET / MOBILE (barra lateral recolhível) ───── */
+  @media (max-width: 900px) {
+    :root { --sidebar-w: 270px; }
+    #sidebar {
+      transform: translateX(-100%);
+      transition: transform 0.3s ease;
+      box-shadow: 4px 0 24px rgba(0,0,0,0.3);
+    }
+    #sidebar.open { transform: translateX(0); }
+    #main { margin-left: 0; }
+    #sidebar-toggle { display: block; }
+    .chapter { padding: 4rem 2rem 3.5rem; max-width: 100%; }
+    .cover { padding: 4rem 2rem; min-height: 100vh; }
+    .cover-title { padding-right: 0; }
+    .stages-grid, .quick-ref-grid, .prognosis-split, .drug-grid, .upc-grid {
+      grid-template-columns: 1fr;
+    }
+    .cover-ornament { font-size: 8rem; right: 1.5rem; bottom: 2rem; }
+  }
+
+  /* ───── CELULAR ───── */
+  @media (max-width: 560px) {
+    body { font-size: 15px; }
+    .chapter { padding: 3.5rem 1.25rem 3rem; }
+    .cover { padding: 3.5rem 1.5rem; }
+    .cover-eyebrow { font-size: 0.68rem; letter-spacing: 0.16em; }
+    .cover-badges { gap: 0.5rem; }
+    .cover-badge { font-size: 0.68rem; padding: 0.35rem 0.7rem; }
+    .cover-author { margin-top: 2rem; padding-top: 1.2rem; }
+    .cover-author .author-name { font-size: 1.15rem; }
+    .cover-ornament { font-size: 5.5rem; right: 1rem; bottom: 1.5rem; }
+    .chapter p, .chapter ul li, .chapter ol li { font-size: 1rem; }
+    .comparison-table, .bp-table { font-size: 0.72rem; }
+    .comparison-table th, .comparison-table td,
+    .bp-table th, .bp-table td { padding: 0.42rem 0.5rem; }
+    .comparison-table th, .bp-table th { letter-spacing: 0; font-size: 0.7rem; }
+    .comparison-table td:first-child { font-size: 0.72rem; }
+    .flowchart { padding: 1.2rem; font-size: 0.86rem; }
+    .quick-card, .callout { padding: 1.1rem 1.2rem; }
+    .msg-item { gap: 0.8rem; }
+  }
+
+  /* Smooth scroll */
+  html { scroll-behavior: smooth; }
+
+  /* Section anchors offset */
+  .chapter { scroll-margin-top: 0; }
+
+  /* ── FIGURAS / ILUSTRAÇÕES (adicionado, sem alterar regras existentes) ── */
+  .figure { margin: 2.2rem 0; }
+  .figure svg, .figure img { width: 100%; height: auto; display: block; border-radius: 6px; }
+  .figure.framed { border: 1px solid var(--border); border-radius: 8px; padding: 1.6rem 1.8rem 1.1rem; background: #fff; }
+  .chapter:nth-child(even) .figure.framed { background: var(--warm-white); }
+  .figure.illus { border-radius: 8px; padding: 0.8rem; background: radial-gradient(ellipse at center, rgba(26,107,114,0.05), transparent 72%); }
+  .figure-tag { display:block; text-align:center; font-size:0.62rem; text-transform:uppercase; letter-spacing:0.16em; color:var(--teal); font-weight:600; margin-bottom:0.7rem; }
+  .figure-cap { text-align:center; font-size:0.82rem; font-style:italic; color:var(--text-light); margin-top:0.9rem; font-family:'Source Serif 4',serif; line-height:1.5; }
+  @media (max-width: 900px) { .figure.framed { padding: 1rem; } }
+</style>
+</head>
+<body>
+
+<button id="sidebar-toggle" onclick="toggleSidebar()">☰</button>
+<div id="sidebar-backdrop" onclick="closeSidebar()"></div>
+
+<!-- SIDEBAR -->
+<nav id="sidebar">
+  <div class="sidebar-logo">
+    <div class="logo-symbol">♦</div>
+    <div class="logo-title">Doença Renal Crônica e Aguda em Cães e Gatos</div>
+    <div class="logo-sub">Nefrologia Veterinária</div>
+  </div>
+
+  <div class="nav-section">
+    <div class="nav-label">Fundamentos</div>
+    <a class="nav-item" href="#cap1">1. Introdução</a>
+    <a class="nav-item" href="#cap2">2. Entendendo os Rins</a>
+  </div>
+
+  <div class="nav-section">
+    <div class="nav-label">Doenças Renais</div>
+    <a class="nav-item" href="#cap3">3. Injúria Renal Aguda (IRA)</a>
+    <a class="nav-item" href="#cap4">4. Doença Renal Crônica (DRC)</a>
+    <a class="nav-item" href="#cap5">5. IRA vs DRC — Diferenças</a>
+  </div>
+
+  <div class="nav-section">
+    <div class="nav-label">Diagnóstico</div>
+    <a class="nav-item" href="#cap6">6. Sinais Clínicos</a>
+    <a class="nav-item" href="#cap7">7. Diagnóstico Laboratorial e Imagem</a>
+    <a class="nav-item" href="#cap8">8. Estadiamento IRIS</a>
+  </div>
+
+  <div class="nav-section">
+    <div class="nav-label">Tratamento</div>
+    <a class="nav-item" href="#cap9">9. Tratamento da IRA</a>
+    <a class="nav-item" href="#cap10">10. Tratamento da DRC</a>
+  </div>
+
+  <div class="nav-section">
+    <div class="nav-label">Prognóstico</div>
+    <a class="nav-item" href="#cap11">11. Prognóstico</a>
+    <a class="nav-item" href="#cap12">12. Prevenção</a>
+    <a class="nav-item" href="#cap13">13. Fluxogramas Clínicos</a>
+    <a class="nav-item" href="#cap14">14. Resumo Prático</a>
+    <a class="nav-item" href="#cap15">15. Conclusão</a>
+  </div>
+</nav>
+
+<!-- MAIN -->
+<main id="main">
+
+  <!-- CAPA -->
+  <div class="cover" id="capa">
+    <div class="cover-eyebrow">eBook de Medicina Veterinária</div>
+    <h1 class="cover-title">Doença Renal Crônica e Aguda em Cães e Gatos</h1>
+    <p class="cover-subtitle">Guia prático baseado em evidências</p>
+    <p class="cover-desc">Uma visão completa sobre fisiopatologia, diagnóstico, estadiamento IRIS, tratamento e prevenção das principais enfermidades renais na rotina clínica de pequenos animais.</p>
+    <div class="cover-badges">
+      <span class="cover-badge">IRA &amp; DRC</span>
+      <span class="cover-badge">Estadiamento IRIS</span>
+      <span class="cover-badge">Protocolos Terapêuticos</span>
+      <span class="cover-badge">Fluxogramas Clínicos</span>
+    </div>
+    <div class="cover-author">
+      <div class="author-label">Autoria</div>
+      <div class="author-name">Álvaro Nardini de Faria</div>
+    </div>
+    <div class="cover-ornament">Ω</div>
+  </div>
+
+  <!-- CAP 1 -->
+  <section class="chapter" id="cap1">
+    <div class="chapter-header">
+      <div class="chapter-num">Capítulo 1</div>
+      <h2 class="chapter-title">Introdução</h2>
+      <div class="chapter-title-line"></div>
+    </div>
+
+    <p>Imagine um gato que passa a recusar alimento por alguns dias, permanecendo mais quieto do que o habitual. Ou um cão que, de forma gradual, começa a beber quantidades cada vez maiores de água e a urinar com mais frequência. Embora esses sinais possam parecer simples ou inespecíficos à primeira vista, eles podem representar os primeiros indícios de uma enfermidade renal significativa.</p>
+
+    <figure class="figure illus"><img src="DogCat.jpeg" alt="Cães e gatos"><figcaption class="figure-cap">Cães e gatos: as doenças renais estão entre as principais causas de morbidade e mortalidade nessas espécies.</figcaption></figure>
+
+
+    <p>As doenças renais estão entre as principais causas de morbidade e mortalidade em cães e gatos, especialmente em pacientes adultos e geriátricos. Os rins desempenham funções vitais para a manutenção da homeostase do organismo, sendo responsáveis pela filtração de resíduos metabólicos, regulação do equilíbrio hídrico e eletrolítico, controle da pressão arterial e produção de hormônios essenciais para diversas funções fisiológicas. Quando ocorre comprometimento dessas estruturas, múltiplos sistemas orgânicos podem ser afetados, resultando em manifestações clínicas que variam desde alterações discretas até quadros potencialmente fatais.</p>
+
+    <p>Entre as enfermidades renais mais frequentemente diagnosticadas na rotina da clínica de pequenos animais destacam-se a Injúria Renal Aguda (IRA) e a Doença Renal Crônica (DRC). Embora ambas comprometam a função renal, apresentam características bastante distintas em relação à velocidade de evolução, mecanismos fisiopatológicos, possibilidades terapêuticas e prognóstico.</p>
+
+    <p>A Injúria Renal Aguda caracteriza-se pela perda súbita da função renal, ocorrendo em questão de horas ou dias. Dependendo da causa e da rapidez do diagnóstico, o quadro pode ser parcial ou totalmente reversível. Diversas situações podem desencadear a IRA, incluindo desidratação severa, hipotensão, intoxicações, infecções sistêmicas e obstruções do trato urinário.</p>
+
+    <p>Por outro lado, a Doença Renal Crônica é uma condição progressiva e irreversível, caracterizada pela perda gradual dos néfrons funcionais ao longo de meses ou anos. Em muitos casos, os sinais clínicos tornam-se evidentes apenas quando uma parcela significativa da função renal já foi comprometida, tornando o diagnóstico precoce um dos maiores desafios enfrentados pelos médicos-veterinários.</p>
+
+    <p>Nos últimos anos, importantes avanços ocorreram no campo da nefrologia veterinária. Novos biomarcadores, como a SDMA (Dimetilarginina Simétrica), protocolos de estadiamento desenvolvidos pela International Renal Interest Society (IRIS) e abordagens terapêuticas mais direcionadas têm contribuído para diagnósticos mais precoces e melhor qualidade de vida dos pacientes acometidos por doenças renais.</p>
+
+    <p>Além disso, a crescente expectativa de vida dos animais de companhia tem aumentado a incidência de enfermidades crônicas, tornando cada vez mais frequente a necessidade de monitoramento renal durante consultas de rotina. Dessa forma, compreender os mecanismos envolvidos nas doenças renais deixou de ser um conhecimento restrito aos especialistas e passou a ser uma competência fundamental para clínicos gerais, estudantes de Medicina Veterinária e demais profissionais que atuam na área de pequenos animais.</p>
+
+    <p>Para os tutores, o entendimento dessas enfermidades também possui grande importância. O reconhecimento precoce de sinais clínicos, a adesão aos tratamentos recomendados e a realização de acompanhamentos periódicos podem impactar diretamente a sobrevida e o bem-estar dos animais diagnosticados com alterações renais.</p>
+
+    <div class="callout gold">
+      <p>Este eBook foi elaborado com o objetivo de fornecer uma visão prática, atualizada e baseada em evidências sobre a Injúria Renal Aguda e a Doença Renal Crônica em cães e gatos. Ao final da leitura, espera-se que o leitor seja capaz de compreender as principais diferenças entre IRA e DRC, reconhecer precocemente os sinais de comprometimento renal, interpretar exames complementares com maior segurança e aplicar condutas clínicas mais eficazes no manejo dos pacientes renais.</p>
+    </div>
+
+    <p>O conhecimento é uma das ferramentas mais importantes para transformar diagnósticos precoces em melhores prognósticos. E quando falamos de doenças renais, cada dia pode fazer a diferença entre a recuperação, a progressão da doença ou até mesmo a sobrevivência do paciente.</p>
+  </section>
+
+  <!-- CAP 2 -->
+  <section class="chapter" id="cap2">
+    <div class="chapter-header">
+      <div class="chapter-num">Capítulo 2</div>
+      <h2 class="chapter-title">Entendendo os Rins</h2>
+      <div class="chapter-title-line"></div>
+    </div>
+
+    <h3>A importância dos rins para a vida</h3>
+    <p>Os rins são órgãos essenciais para a manutenção da homeostase do organismo. Embora muitas pessoas associem sua função apenas à produção de urina, sua atuação vai muito além disso. Essas estruturas trabalham continuamente para manter o equilíbrio interno do corpo, regulando a composição do sangue, controlando o volume de líquidos corporais e eliminando substâncias potencialmente tóxicas.</p>
+    <p>Em cães e gatos saudáveis, os rins recebem aproximadamente 20% a 25% de todo o débito cardíaco. Esse elevado fluxo sanguíneo demonstra a importância da filtração renal para o funcionamento adequado do organismo.</p>
+    <p>Quando os rins perdem sua capacidade funcional, diversas alterações metabólicas começam a ocorrer simultaneamente. O acúmulo de substâncias tóxicas, os desequilíbrios eletrolíticos e as alterações hormonais afetam praticamente todos os sistemas corporais, justificando a grande variedade de sinais clínicos observados nos pacientes renais.</p>
+
+    <h3>Anatomia básica dos rins</h3>
+    <p>Os rins são órgãos pares localizados na cavidade abdominal, próximos à coluna vertebral. Em cães, o rim direito encontra-se geralmente mais cranial que o esquerdo devido à posição ocupada pelo fígado. Em gatos, ambos os rins costumam apresentar maior mobilidade dentro da cavidade abdominal.</p>
+    <p>Externamente, os rins apresentam formato semelhante a um feijão e são revestidos por uma cápsula fibrosa protetora. Internamente, podem ser divididos em três regiões principais:</p>
+
+    <h4>Córtex renal</h4>
+    <p>É a região mais externa do órgão. Contém glomérulos, túbulos contorcidos proximais e túbulos contorcidos distais. Grande parte da filtração sanguínea inicia-se nesta região.</p>
+
+    <h4>Medula renal</h4>
+    <p>Localizada abaixo do córtex. Contém alças de Henle e ductos coletores. É responsável por importantes mecanismos de concentração urinária.</p>
+
+    <h4>Pelve renal</h4>
+    <p>Região central responsável por coletar a urina produzida pelos néfrons e direcioná-la para os ureteres.</p>
+
+    <figure class="figure framed"><span class="figure-tag">Figura 1 — Anatomia renal</span><img src="Rim.jpeg" alt="Anatomia renal"><figcaption class="figure-cap">Corte do rim mostrando córtex, medula (pirâmides), pelve renal e o trajeto da urina até o ureter.</figcaption></figure>
+
+
+    <h3>O néfron: a unidade funcional do rim</h3>
+    <p>Cada rim é composto por milhares de unidades microscópicas chamadas néfrons. O néfron é considerado a unidade funcional renal, sendo responsável pela formação da urina e pela manutenção da homeostase. Cada néfron é formado por:</p>
+    <ul>
+      <li>Glomérulo</li>
+      <li>Cápsula de Bowman</li>
+      <li>Túbulo contorcido proximal</li>
+      <li>Alça de Henle</li>
+      <li>Túbulo contorcido distal</li>
+      <li>Ducto coletor</li>
+    </ul>
+    
+
+    <figure class="figure framed"><span class="figure-tag">Figura 2 — O néfron</span><img src="Nefron.jpeg" alt="O néfron"><figcaption class="figure-cap">Unidade funcional do rim: glomérulo, cápsula de Bowman, túbulos contorcidos, alça de Henle e ducto coletor.</figcaption></figure>
+<p>A perda progressiva dessas estruturas é o principal mecanismo responsável pelo desenvolvimento da Doença Renal Crônica.</p>
+
+    <h3>Como ocorre a formação da urina?</h3>
+    <p>A produção de urina acontece por meio de três processos fundamentais:</p>
+
+    <h4>1. Filtração glomerular</h4>
+    <p>O sangue chega ao glomérulo através das arteríolas aferentes, onde ocorre uma filtração seletiva. Passam para o filtrado: água, eletrólitos, glicose, ureia e creatinina. Normalmente não passam proteínas de alto peso molecular nem células sanguíneas. O produto inicial dessa filtração é chamado filtrado glomerular.</p>
+
+    <h4>2. Reabsorção tubular</h4>
+    <p>Após a filtração, o organismo recupera substâncias importantes que não devem ser eliminadas: água, sódio, potássio, cloro, glicose e aminoácidos. Mais de 99% da água filtrada retorna à circulação sanguínea. Esse mecanismo impede perdas excessivas de líquidos e nutrientes.</p>
+
+    <h4>3. Secreção tubular</h4>
+    <p>Além de reabsorver substâncias úteis, os túbulos renais também eliminam compostos que precisam ser removidos do organismo: íons hidrogênio, potássio, fármacos e metabólitos tóxicos. Esse processo auxilia no controle do equilíbrio ácido-base e da composição sanguínea.</p>
+
+    <figure class="figure framed"><span class="figure-tag">Figura 3 — Formação da urina</span><svg viewBox="0 0 760 220" xmlns="http://www.w3.org/2000/svg" font-family="'Source Serif 4',Georgia,serif">
+  <g>
+    <rect x="20" y="40" width="210" height="140" rx="8" fill="#fdfaf5" stroke="#0d2340" stroke-width="1.5"/>
+    <circle cx="70" cy="90" r="22" fill="none" stroke="#0d2340" stroke-width="2"/>
+    <path d="M55 85 C65 78 80 80 84 90 C78 98 64 98 58 100 Z" fill="#c0392b" opacity="0.8"/>
+    <path d="M92 90 l40 0 M122 84 l10 6 -10 6" stroke="#c9943a" stroke-width="2.5" fill="none"/>
+    <text x="125" y="2" font-size="0" >a</text>
+    <text x="40" y="135" font-size="13" fill="#0d2340" font-weight="600">1. Filtração</text>
+    <text x="40" y="152" font-size="11" fill="#3d4f5c">glomerular</text>
+    <text x="40" y="170" font-size="10.5" fill="#6b7f8c">sangue → filtrado</text>
+  </g>
+  <text x="245" y="115" font-size="26" fill="#c9943a">→</text>
+  <g>
+    <rect x="275" y="40" width="210" height="140" rx="8" fill="#fdfaf5" stroke="#1a6b72" stroke-width="1.5"/>
+    <path d="M305 70 C360 75 360 130 320 150" fill="none" stroke="#1a6b72" stroke-width="9" stroke-linecap="round"/>
+    <g stroke="#2a8c95" stroke-width="2.5" fill="none">
+      <path d="M345 95 l28 -10 M373 85 l-8 -2 m8 2 l-2 8"/>
+      <path d="M345 120 l28 -10 M373 110 l-8 -2 m8 2 l-2 8"/>
+    </g>
+    <text x="300" y="170" font-size="13" fill="#1a6b72" font-weight="600">2. Reabsorção tubular</text>
+    <text x="300" y="187" font-size="0" fill="#6b7f8c">x</text>
+  </g>
+  <text x="500" y="115" font-size="26" fill="#c9943a">→</text>
+  <g>
+    <rect x="530" y="40" width="210" height="140" rx="8" fill="#fdfaf5" stroke="#c9943a" stroke-width="1.5"/>
+    <path d="M560 70 C615 75 615 130 575 150" fill="none" stroke="#1a6b72" stroke-width="9" stroke-linecap="round"/>
+    <g stroke="#c9943a" stroke-width="2.5" fill="none">
+      <path d="M600 95 l28 10 M600 95 l8 -2 m-8 2 l2 8"/>
+      <path d="M600 120 l28 10 M600 120 l8 -2 m-8 2 l2 8"/>
+    </g>
+    <text x="555" y="170" font-size="13" fill="#c9943a" font-weight="600">3. Secreção tubular</text>
+  </g>
+</svg><figcaption class="figure-cap">Três processos fundamentais: filtração glomerular, reabsorção tubular e secreção tubular.</figcaption></figure>
+
+
+    <h3>Principais funções dos rins</h3>
+
+    <h4>Excreção de resíduos metabólicos</h4>
+    <p>Os rins eliminam substâncias produzidas pelo metabolismo normal do organismo, como ureia, creatinina, ácido úrico e diversas toxinas. Quando ocorre insuficiência renal, essas substâncias acumulam-se no sangue, provocando o quadro conhecido como azotemia. Nos estágios mais avançados, pode ocorrer a síndrome urêmica, responsável por diversas complicações sistêmicas.</p>
+
+    <h4>Controle do equilíbrio hídrico</h4>
+    <p>Os rins regulam a quantidade de água presente no organismo. Quando há excesso de água, produzem maior volume urinário. Quando há escassez, conservam água produzindo urina mais concentrada. Esse mecanismo é fundamental para prevenir tanto a desidratação quanto a sobrecarga hídrica.</p>
+
+    <h4>Regulação dos eletrólitos</h4>
+    <p>Os rins mantêm concentrações adequadas de sódio, potássio, cálcio, magnésio e fósforo. Alterações nesses elementos podem resultar em sinais clínicos graves. Por exemplo, a hipercalemia frequentemente observada em pacientes com Injúria Renal Aguda pode causar arritmias cardíacas potencialmente fatais.</p>
+
+    <h4>Controle da pressão arterial</h4>
+    <p>Os rins participam diretamente da regulação da pressão arterial através do Sistema Renina-Angiotensina-Aldosterona (SRAA). Quando ocorre redução da perfusão renal, há liberação de renina, formação de angiotensina II, vasoconstrição e retenção de sódio e água. Embora inicialmente seja um mecanismo compensatório, sua ativação crônica pode contribuir para hipertensão arterial sistêmica e progressão da doença renal.</p>
+
+    <h4>Produção de eritropoietina</h4>
+    <p>A eritropoietina é um hormônio produzido principalmente pelos rins. Sua função é estimular a medula óssea a produzir hemácias. Quando a função renal está comprometida, a produção desse hormônio diminui, favorecendo o desenvolvimento de anemia não regenerativa, especialmente em pacientes com Doença Renal Crônica.</p>
+
+    <h4>Ativação da vitamina D</h4>
+    <p>Os rins participam da conversão da vitamina D em sua forma biologicamente ativa. Essa vitamina é essencial para absorção intestinal de cálcio, saúde óssea e metabolismo mineral. Alterações nesse processo podem contribuir para distúrbios do metabolismo ósseo e mineral observados em pacientes renais crônicos.</p>
+
+    <h3>O extraordinário poder de compensação dos rins</h3>
+    <p>Uma característica importante do tecido renal é sua enorme capacidade compensatória. Mesmo após a perda de uma quantidade significativa de néfrons, os néfrons remanescentes conseguem aumentar sua atividade para manter a função renal aparentemente normal. Por esse motivo, muitos pacientes permanecem sem sinais clínicos por meses ou até anos.</p>
+
+    <div class="callout">
+      <p>Na maioria dos casos, os sinais de insuficiência renal só se tornam evidentes quando aproximadamente 65% a 75% da função renal já foi comprometida. Essa capacidade de compensação explica por que exames de triagem e biomarcadores precoces, como a SDMA, são tão importantes para o diagnóstico precoce.</p>
+    </div>
+
+    <h3>O que acontece quando os rins falham?</h3>
+    <p>Quando a função renal diminui de forma significativa, uma série de alterações ocorre simultaneamente:</p>
+    <div class="checklist">
+      <div class="checklist-item"><span class="check">✓</span><span>Acúmulo de ureia e creatinina no sangue</span></div>
+      <div class="checklist-item"><span class="check">✓</span><span>Retenção de fósforo</span></div>
+      <div class="checklist-item"><span class="check">✓</span><span>Alterações nos níveis de potássio</span></div>
+      <div class="checklist-item"><span class="check">✓</span><span>Desidratação ou sobrecarga hídrica</span></div>
+      <div class="checklist-item"><span class="check">✓</span><span>Hipertensão arterial</span></div>
+      <div class="checklist-item"><span class="check">✓</span><span>Acidose metabólica</span></div>
+      <div class="checklist-item"><span class="check">✓</span><span>Anemia</span></div>
+      <div class="checklist-item"><span class="check">✓</span><span>Síndrome urêmica</span></div>
+    </div>
+    <p>Com o avanço da doença, praticamente todos os sistemas do organismo podem ser afetados, incluindo os sistemas cardiovascular, gastrointestinal, neurológico e hematológico. É justamente por essa ampla repercussão sistêmica que as doenças renais são consideradas uma das condições mais complexas e desafiadoras da medicina veterinária.</p>
+  </section>
+
+  <!-- CAP 3 -->
+  <section class="chapter" id="cap3">
+    <div class="chapter-header">
+      <div class="chapter-num">Capítulo 3</div>
+      <h2 class="chapter-title">Injúria Renal Aguda (IRA)</h2>
+      <div class="chapter-title-line"></div>
+    </div>
+
+    <h3>O que é a Injúria Renal Aguda?</h3>
+    <p>A Injúria Renal Aguda (IRA) é uma síndrome clínica caracterizada pela perda abrupta da função renal, ocorrendo em um período que pode variar de poucas horas a alguns dias. Essa redução súbita da capacidade dos rins compromete a filtração glomerular, a excreção de resíduos metabólicos e a manutenção do equilíbrio hídrico, eletrolítico e ácido-base.</p>
+    <p>Diferentemente da Doença Renal Crônica (DRC), que se desenvolve lentamente ao longo do tempo, a IRA apresenta instalação rápida e frequentemente está associada a uma causa desencadeante identificável. A gravidade do quadro pode variar desde alterações laboratoriais discretas até insuficiência renal grave com risco iminente de morte. Entretanto, quando diagnosticada precocemente e tratada adequadamente, a IRA possui potencial de reversibilidade parcial ou até mesmo completa.</p>
+
+    <h3>Como a IRA se desenvolve?</h3>
+    <p>Independentemente da causa inicial, a maioria dos casos de Injúria Renal Aguda resulta em diminuição da Taxa de Filtração Glomerular (TFG). Essa redução desencadeia uma série de alterações fisiopatológicas:</p>
+    <ul>
+      <li>Retenção de ureia e creatinina</li>
+      <li>Acúmulo de toxinas urêmicas</li>
+      <li>Alterações eletrolíticas</li>
+      <li>Distúrbios ácido-base</li>
+      <li>Alteração da produção urinária</li>
+      <li>Sobrecarga hídrica ou desidratação</li>
+    </ul>
+    <p>À medida que o dano renal progride, a capacidade dos rins de manter a homeostase torna-se insuficiente, levando ao aparecimento dos sinais clínicos.</p>
+
+    <h3>Classificação da IRA</h3>
+    <p>Para facilitar o entendimento das causas, a IRA é tradicionalmente dividida em três grandes categorias:</p>
+
+    <figure class="figure framed"><span class="figure-tag">Figura 4 — Classificação da IRA</span><svg viewBox="0 0 760 300" xmlns="http://www.w3.org/2000/svg" font-family="'Source Serif 4',Georgia,serif">
+  <!-- simplified kidney -->
+  <path d="M360 80 C300 80 265 120 265 165 C265 210 300 250 360 250 C388 250 405 235 408 215
+           C398 220 388 212 388 198 C388 180 408 180 408 165 C408 150 388 150 388 132
+           C388 118 398 110 408 115 C405 95 388 80 360 80 Z"
+        fill="#f7f3ec" stroke="#0d2340" stroke-width="2.5"/>
+  <ellipse cx="335" cy="165" rx="40" ry="55" fill="#1a6b72" opacity="0.15"/>
+  <!-- pré-renal: artery in -->
+  <path d="M150 165 L388 165" fill="none" stroke="#c9943a" stroke-width="9" stroke-linecap="round" opacity="0.9"/>
+  <polygon points="392,165 376,157 376,173" fill="#c9943a"/>
+  <circle cx="180" cy="165" r="6" fill="#c9943a"/>
+  <!-- pós-renal: ureter out + bladder + obstruction -->
+  <path d="M405 200 C470 230 520 245 575 250" fill="none" stroke="#c9943a" stroke-width="8" stroke-linecap="round"/>
+  <ellipse cx="615" cy="250" rx="34" ry="26" fill="#fdfaf5" stroke="#0d2340" stroke-width="2"/>
+  <g stroke="#c0392b" stroke-width="3"><line x1="528" y1="238" x2="548" y2="258"/><line x1="548" y1="238" x2="528" y2="258"/></g>
+
+  <!-- panels -->
+  <g>
+    <rect x="40" y="40" width="200" height="70" rx="6" fill="#fff" stroke="#c9943a" stroke-width="1.5"/>
+    <text x="55" y="66" font-size="14" fill="#c9943a" font-weight="700">IRA Pré-Renal</text>
+    <text x="55" y="86" font-size="11.5" fill="#3d4f5c">Redução do fluxo sanguíneo</text>
+    <text x="55" y="101" font-size="11.5" fill="#3d4f5c">que chega aos rins</text>
+  </g>
+  <g>
+    <rect x="285" y="20" width="190" height="50" rx="6" fill="#fff" stroke="#1a6b72" stroke-width="1.5"/>
+    <text x="300" y="42" font-size="14" fill="#1a6b72" font-weight="700">IRA Renal (Intrínseca)</text>
+    <text x="300" y="60" font-size="11.5" fill="#3d4f5c">Lesão direta do tecido renal</text>
+  </g>
+  <g>
+    <rect x="520" y="160" width="210" height="70" rx="6" fill="#fff" stroke="#c0392b" stroke-width="1.5"/>
+    <text x="535" y="186" font-size="14" fill="#c0392b" font-weight="700">IRA Pós-Renal</text>
+    <text x="535" y="206" font-size="11.5" fill="#3d4f5c">Obstrução do fluxo urinário</text>
+    <text x="535" y="221" font-size="11.5" fill="#3d4f5c">após a formação da urina</text>
+  </g>
+  <text x="600" y="290" font-size="11" fill="#6b7f8c" text-anchor="middle">bexiga</text>
+</svg><figcaption class="figure-cap">Pré-renal (redução do fluxo sanguíneo), renal/intrínseca (lesão do tecido) e pós-renal (obstrução do fluxo urinário).</figcaption></figure>
+
+
+    <h4>IRA Pré-Renal</h4>
+    <p>Ocorre quando há redução do fluxo sanguíneo que chega aos rins. Nesse caso, inicialmente o tecido renal pode estar estruturalmente íntegro, porém recebe quantidade insuficiente de sangue para realizar suas funções adequadamente. As principais causas incluem:</p>
+    <ul>
+      <li>Desidratação severa</li>
+      <li>Hemorragias</li>
+      <li>Choque hipovolêmico</li>
+      <li>Sepse</li>
+      <li>Insuficiência cardíaca</li>
+      <li>Hipotensão prolongada</li>
+      <li>Anestesia com hipotensão persistente</li>
+    </ul>
+    <div class="callout gold">
+      <p><strong>Exemplo clínico:</strong> Um cão com gastroenterite hemorrágica grave apresenta intensa perda de líquidos por vômitos e diarreia. A diminuição do volume circulante reduz a perfusão renal e pode desencadear uma IRA pré-renal. Quando corrigida rapidamente, essa condição pode ser totalmente reversível.</p>
+    </div>
+
+    <h4>IRA Renal (Intrínseca)</h4>
+    <p>Caracteriza-se por lesão direta das estruturas renais, com dano aos glomérulos, túbulos renais, interstício ou vasos sanguíneos renais. As principais causas incluem:</p>
+    <ul>
+      <li>Agentes infecciosos: leptospirose, pielonefrite bacteriana, sepse sistêmica</li>
+      <li>Toxinas e medicamentos: aminoglicosídeos, AINEs, cisplatina, contrastes radiográficos</li>
+      <li>Intoxicações em cães: etilenoglicol, uvas, passas</li>
+      <li>Intoxicações em gatos: lírios (Lilium spp.), etilenoglicol</li>
+      <li>Isquemia renal prolongada, glomerulopatias agudas, vasculites, doenças imunomediadas</li>
+    </ul>
+
+    <h4>IRA Pós-Renal</h4>
+    <p>Ocorre quando há obstrução do fluxo urinário após a formação da urina. A pressão retrógrada gerada pela obstrução reduz a filtração glomerular e compromete rapidamente a função renal. Principais causas:</p>
+    <ul>
+      <li>Obstrução uretral felina</li>
+      <li>Urolitíase obstrutiva</li>
+      <li>Neoplasias urinárias</li>
+      <li>Estenoses uretrais</li>
+      <li>Ruptura vesical</li>
+      <li>Ruptura uretral</li>
+    </ul>
+    <div class="callout gold">
+      <p><strong>Exemplo clínico:</strong> Um gato macho com obstrução uretral apresenta incapacidade de urinar, distensão vesical e hipercalemia grave. Em poucas horas pode desenvolver alterações cardíacas potencialmente fatais.</p>
+    </div>
+
+    <h3>Principais fatores de risco</h3>
+    <p>Alguns pacientes apresentam maior predisposição ao desenvolvimento de IRA:</p>
+    <ul>
+      <li>Pacientes geriátricos</li>
+      <li>Animais desidratados</li>
+      <li>Pacientes internados em estado crítico</li>
+      <li>Portadores de doenças sistêmicas</li>
+      <li>Pacientes submetidos a cirurgias prolongadas</li>
+      <li>Uso de medicamentos potencialmente nefrotóxicos</li>
+      <li>Exposição a substâncias tóxicas</li>
+    </ul>
+
+    <h3>Sinais clínicos</h3>
+    <p>Os sinais clínicos da IRA costumam surgir rapidamente e podem variar conforme a causa, a intensidade da lesão e o estágio da doença.</p>
+    <h4>Sinais iniciais</h4>
+    <ul><li>Apatia</li><li>Hiporexia</li><li>Anorexia</li><li>Letargia</li><li>Vômitos</li><li>Náusea</li><li>Desidratação</li></ul>
+    <h4>Sinais moderados</h4>
+    <ul><li>Perda de peso aguda</li><li>Halitose urêmica</li><li>Dor abdominal</li><li>Alterações urinárias</li><li>Fraqueza muscular</li></ul>
+    <h4>Sinais graves</h4>
+    <ul><li>Oligúria</li><li>Anúria</li><li>Convulsões</li><li>Hipotermia</li><li>Arritmias cardíacas</li><li>Coma</li></ul>
+
+    <h3>Alterações na produção urinária</h3>
+    <p>A avaliação da diurese é uma das etapas mais importantes no monitoramento desses pacientes.</p>
+    <h4>Poliúria</h4>
+    <p>Produção excessiva de urina. Pode ocorrer durante a fase de recuperação.</p>
+    <h4>Oligúria</h4>
+    <p>Produção urinária reduzida, geralmente definida como menor que 1 mL/kg/hora. Costuma indicar pior prognóstico.</p>
+    <h4>Anúria</h4>
+    <p>Ausência ou produção mínima de urina. Representa uma emergência médica e frequentemente está associada a lesões graves ou obstruções urinárias.</p>
+
+    <h3>Alterações laboratoriais mais frequentes</h3>
+    <h4>Azotemia</h4>
+    <p>Caracterizada pela elevação de ureia e creatinina. É uma das principais alterações observadas na IRA.</p>
+    <h4>Hipercalemia</h4>
+    <p>A diminuição da excreção renal de potássio pode resultar em hipercalemia — uma das complicações mais perigosas da IRA. Sinais associados: bradicardia, fraqueza muscular, arritmias e parada cardíaca.</p>
+    <h4>Acidose metabólica</h4>
+    <p>A incapacidade dos rins em excretar íons hidrogênio leva ao desenvolvimento de acidose metabólica, com consequências como depressão neurológica, fraqueza e alterações cardiovasculares.</p>
+    <h4>Hiperfosfatemia</h4>
+    <p>O aumento do fósforo sérico é frequente devido à redução da excreção renal. Níveis elevados podem agravar a lesão renal e contribuir para alterações metabólicas adicionais.</p>
+
+    <h3>Diagnóstico da IRA</h3>
+    <p>O diagnóstico baseia-se na integração entre histórico clínico, exame físico, exames laboratoriais e exames de imagem. Perguntas importantes no histórico: Houve exposição a toxinas? O paciente teve acesso a medicamentos? Existe histórico de obstrução urinária? Houve episódios recentes de desidratação?</p>
+
+    <h3>Complicações da IRA</h3>
+    <ul><li>Hipercalemia</li><li>Sobrecarga hídrica</li><li>Hipertensão arterial</li><li>Edema pulmonar</li><li>Síndrome urêmica</li><li>Distúrbios neurológicos</li><li>Arritmias cardíacas</li></ul>
+
+    <h3>Prognóstico</h3>
+    <p>O prognóstico é extremamente variável. Os principais fatores que influenciam a recuperação incluem: causa primária, tempo até o início do tratamento, presença de oligúria ou anúria, resposta à fluidoterapia, necessidade de diálise e existência de lesão renal prévia. Pacientes diagnosticados precocemente apresentam taxas de recuperação significativamente maiores.</p>
+  </section>
+
+  <!-- CAP 4 -->
+  <section class="chapter" id="cap4">
+    <div class="chapter-header">
+      <div class="chapter-num">Capítulo 4</div>
+      <h2 class="chapter-title">Doença Renal Crônica (DRC)</h2>
+      <div class="chapter-title-line"></div>
+    </div>
+
+    <h3>O que é a Doença Renal Crônica?</h3>
+    <p>A Doença Renal Crônica (DRC) é definida como a presença de alterações estruturais ou funcionais nos rins persistentes por mais de três meses, capazes de comprometer a saúde do paciente. Trata-se de uma enfermidade progressiva e irreversível, caracterizada pela perda gradual e contínua dos néfrons funcionais. À medida que essas unidades são destruídas, a capacidade dos rins de desempenhar suas funções diminui, levando ao desenvolvimento de alterações metabólicas, hormonais e sistêmicas.</p>
+    <p>A DRC é considerada uma das doenças mais comuns em animais idosos, especialmente em gatos, nos quais sua prevalência aumenta significativamente após os 10 anos de idade. Embora não exista cura para a maioria dos casos, o diagnóstico precoce e a implementação adequada do tratamento podem retardar a progressão da doença, aumentar a sobrevida e melhorar significativamente a qualidade de vida do paciente.</p>
+
+    <h3>Como a DRC se desenvolve?</h3>
+    <p>A característica central da DRC é a destruição progressiva dos néfrons. Quando parte dessas estruturas é perdida, os néfrons remanescentes tentam compensar o dano aumentando sua atividade funcional — mecanismo conhecido como hiperfiltração glomerular. Inicialmente, essa adaptação permite a manutenção da função renal. Contudo, com o passar do tempo, a sobrecarga imposta aos néfrons sobreviventes favorece novas lesões, criando um ciclo contínuo de progressão da doença.</p>
+
+    <div class="flowchart">
+      <div class="flowchart-title">O ciclo da progressão renal</div>
+      <div class="flow-step"><div class="flow-box">Perda de néfrons</div></div>
+      <div class="flow-connector">↓</div>
+      <div class="flow-step"><div class="flow-box">Hiperfiltração compensatória</div></div>
+      <div class="flow-connector">↓</div>
+      <div class="flow-step"><div class="flow-box">Aumento da pressão intraglomerular</div></div>
+      <div class="flow-connector">↓</div>
+      <div class="flow-step"><div class="flow-box">Lesão glomerular adicional</div></div>
+      <div class="flow-connector">↓</div>
+      <div class="flow-step"><div class="flow-box action">Perda de novos néfrons → Progressão da DRC</div></div>
+    </div>
+
+    <h3>Principais causas da DRC</h3>
+    <h4>Cães</h4>
+    <p>As causas mais comuns incluem glomerulopatias crônicas, nefrite intersticial crônica, doenças hereditárias, displasias renais, pielonefrites recorrentes, urolitíase crônica e hipertensão arterial sistêmica. Algumas raças apresentam predisposição genética: Shih Tzu, Lhasa Apso, Cocker Spaniel, Bull Terrier, Samoieda e Doberman.</p>
+    <h4>Gatos</h4>
+    <p>Nos felinos, as principais causas incluem nefrite tubulointersticial crônica, doença renal policística, amiloidose renal, pielonefrite crônica, linfoma renal e alterações relacionadas ao envelhecimento. A nefropatia tubulointersticial crônica é considerada a causa mais frequente de DRC em gatos.</p>
+
+    <h3>Fatores que aceleram a progressão da doença</h3>
+    <h4>Hipertensão arterial sistêmica</h4>
+    <p>A pressão elevada provoca lesão contínua dos glomérulos. Além de agravar a DRC, aumenta o risco de descolamento de retina, acidente vascular encefálico e lesões cardíacas.</p>
+    <h4>Proteinúria</h4>
+    <p>A presença excessiva de proteínas na urina não é apenas consequência da doença renal. Ela também contribui diretamente para a progressão da lesão. Pacientes proteinúricos geralmente apresentam pior prognóstico quando comparados aos não proteinúricos.</p>
+    <h4>Hiperfosfatemia</h4>
+    <p>O aumento das concentrações séricas de fósforo favorece mineralização tecidual, inflamação renal e progressão da nefropatia. Por esse motivo, o controle do fósforo é uma das principais metas terapêuticas na DRC.</p>
+    <h4>Obesidade</h4>
+    <p>Pacientes obesos apresentam maior risco de progressão da doença devido ao aumento da demanda metabólica sobre os rins.</p>
+    <h4>Doença periodontal</h4>
+    <p>A inflamação crônica associada às infecções periodontais pode contribuir para lesões renais ao longo do tempo.</p>
+
+    <h3>Principais alterações fisiopatológicas</h3>
+    <h4>Azotemia e síndrome urêmica</h4>
+    <p>A redução da filtração glomerular leva ao acúmulo de resíduos nitrogenados (ureia, creatinina, SDMA). Quando a retenção de toxinas atinge níveis elevados, desenvolve-se a síndrome urêmica — condição sistêmica responsável por náusea, vômitos, úlceras orais, halitose urêmica, letargia e fraqueza.</p>
+    <h4>Distúrbios eletrolíticos</h4>
+    <p>As alterações mais comuns incluem hiperfosfatemia, hipocalemia (especialmente em gatos), alterações no cálcio e acidose metabólica.</p>
+    <h4>Anemia renal</h4>
+    <p>A produção reduzida de eritropoietina compromete a formação de hemácias, resultando em anemia não regenerativa com mucosas pálidas, fraqueza, intolerância ao exercício e letargia.</p>
+    <h4>Hipertensão arterial sistêmica</h4>
+    <p>A ativação persistente do Sistema Renina-Angiotensina-Aldosterona favorece o desenvolvimento da hipertensão, podendo causar lesões em retina, coração, encéfalo e nos próprios rins.</p>
+
+    <h3>Como a DRC afeta outros órgãos?</h3>
+    <p>A doença renal não deve ser vista como um problema isolado dos rins — ela afeta praticamente todo o organismo: sistema gastrointestinal (hiporexia, vômitos, úlceras, gastrite urêmica), cardiovascular (hipertensão, hipertrofia cardíaca, arritmias), nervoso (desorientação, tremores, convulsões, encefalopatia urêmica) e musculoesquelético (perda de massa muscular, fraqueza, emagrecimento progressivo).</p>
+
+    <h3>A importância do diagnóstico precoce</h3>
+    <p>Um dos maiores desafios da DRC é que os sinais clínicos costumam surgir apenas quando grande parte da função renal já foi perdida. Por isso, a realização de exames preventivos em pacientes de risco é fundamental. Devem ser monitorados regularmente: creatinina, SDMA, urinálise, proteinúria, pressão arterial e ultrassonografia renal.</p>
+    <div class="callout">
+      <p>Em gatos idosos, a inclusão da SDMA em check-ups anuais pode permitir o diagnóstico meses antes da elevação da creatinina.</p>
+    </div>
+  </section>
+
+  <!-- CAP 5 -->
+  <section class="chapter" id="cap5">
+    <div class="chapter-header">
+      <div class="chapter-num">Capítulo 5</div>
+      <h2 class="chapter-title">Diferenças entre IRA e DRC</h2>
+      <div class="chapter-title-line"></div>
+    </div>
+
+    <p>Na rotina clínica, é comum receber pacientes apresentando sinais inespecíficos como apatia, anorexia, vômitos e alterações nos exames laboratoriais. Muitas vezes, tanto a Injúria Renal Aguda quanto a Doença Renal Crônica podem cursar com aumento de ureia e creatinina, dificultando o diagnóstico inicial. Entretanto, distinguir corretamente essas duas condições é fundamental, pois elas possuem comportamentos biológicos completamente diferentes.</p>
+
+    <div class="table-wrap"><table class="comparison-table">
+      <thead>
+        <tr>
+          <th>Característica</th>
+          <th>IRA</th>
+          <th>DRC</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Início dos sinais clínicos</td><td>Súbito</td><td>Gradual</td></tr>
+        <tr><td>Evolução</td><td>Horas a dias</td><td>Meses a anos</td></tr>
+        <tr><td>Reversibilidade</td><td>Possível</td><td>Não</td></tr>
+        <tr><td>Histórico clínico</td><td>Curto</td><td>Longo</td></tr>
+        <tr><td>Tamanho renal</td><td>Normal ou aumentado</td><td>Frequentemente reduzido</td></tr>
+        <tr><td>Anemia</td><td>Incomum</td><td>Comum</td></tr>
+        <tr><td>Hipertensão</td><td>Pode ocorrer</td><td>Muito frequente</td></tr>
+        <tr><td>Prognóstico</td><td>Variável</td><td>Progressivo</td></tr>
+        <tr><td>Necessidade de tratamento contínuo</td><td>Nem sempre</td><td>Geralmente permanente</td></tr>
+      </tbody>
+    </table></div>
+
+    <h3>Avaliação do histórico clínico</h3>
+    <h4>Sugestivo de IRA</h4>
+    <p>O tutor frequentemente relata início recente dos sinais clínicos, evolução rápida, exposição a medicamentos, possível intoxicação, episódios recentes de desidratação, obstrução urinária, cirurgia recente ou trauma.</p>
+    <div class="callout gold">
+      <p><strong>Exemplo clínico:</strong> Um cão que ingeriu etilenoglicol há dois dias e desenvolveu vômitos, apatia e azotemia provavelmente apresenta uma Injúria Renal Aguda.</p>
+    </div>
+
+    <h4>Sugestivo de DRC</h4>
+    <p>O tutor costuma relatar emagrecimento progressivo, aumento da ingestão de água há semanas ou meses, aumento da frequência urinária, diminuição gradual do apetite e histórico prolongado de alterações clínicas.</p>
+    <div class="callout gold">
+      <p><strong>Exemplo clínico:</strong> Um gato de 13 anos com perda de peso há seis meses, poliúria, polidipsia e hipertensão arterial apresenta forte suspeita de Doença Renal Crônica.</p>
+    </div>
+
+    <h3>O papel da ultrassonografia</h3>
+    <p>A ultrassonografia renal é uma das ferramentas mais úteis para diferenciação entre IRA e DRC. Achados sugestivos de IRA: rins normais ou aumentados, edema renal, alteração difusa da ecogenicidade, pielonefrite, hidronefrose. Achados sugestivos de DRC: rins reduzidos, contornos irregulares, perda da definição córtico-medular, fibrose renal, mineralização.</p>
+
+    <h3>Quando IRA e DRC ocorrem juntas?</h3>
+    <div class="callout navy">
+      <p>Uma situação relativamente comum na prática clínica é a chamada <strong>"IRA sobre DRC"</strong>: um paciente portador de doença renal crônica sofre uma nova agressão renal aguda por desidratação, infecção urinária, uso de medicamentos nefrotóxicos ou obstrução urinária. Esses casos costumam apresentar maior complexidade diagnóstica e prognóstica.</p>
+    </div>
+
+    <h3>Fluxograma de raciocínio clínico</h3>
+    <div class="flowchart">
+      <div class="flowchart-title">Abordagem do paciente azotêmico</div>
+      <div class="flow-step"><div class="flow-box decision">Paciente com azotemia</div></div>
+      <div class="flow-connector">↓</div>
+      <div class="flow-step"><div class="flow-box">Avaliar histórico clínico</div></div>
+      <div class="flow-connector">↓</div>
+      <div class="flow-step"><div class="flow-box decision">Sinais agudos?</div></div>
+      <div class="flow-connector">↓ Sim</div>
+      <div class="flow-step flow-indent"><div class="flow-box action">Suspeitar de IRA → Investigar toxinas, obstrução, infecção</div></div>
+      <div class="flow-connector">↓ Não</div>
+      <div class="flow-step"><div class="flow-box decision">Poliúria, polidipsia e perda de peso crônica?</div></div>
+      <div class="flow-connector">↓ Sim</div>
+      <div class="flow-step flow-indent"><div class="flow-box action">Suspeitar de DRC → Confirmar com exames e ultrassonografia</div></div>
+    </div>
+  </section>
+
+  <!-- CAP 6 -->
+  <section class="chapter" id="cap6">
+    <div class="chapter-header">
+      <div class="chapter-num">Capítulo 6</div>
+      <h2 class="chapter-title">Principais Sinais Clínicos das Doenças Renais</h2>
+      <div class="chapter-title-line"></div>
+    </div>
+
+    <p>As doenças renais frequentemente se manifestam por sinais clínicos inespecíficos, especialmente em seus estágios iniciais. Por esse motivo, muitos pacientes são diagnosticados apenas quando já apresentam perda significativa da função renal. Na rotina clínica, sintomas como diminuição do apetite, perda de peso ou aumento da ingestão de água podem ser atribuídos equivocadamente ao envelhecimento normal do animal.</p>
+
+    <figure class="figure illus"><svg viewBox="0 0 760 300" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="380" cy="150" r="120" fill="#1a6b72" opacity="0.07"/>
+  <g transform="translate(380,180) scale(1.25)">
+    <path d="M70 80 C120 80 120 20 80 22" fill="none" stroke="#0d2340" stroke-width="12" stroke-linecap="round"/>
+    <path d="M-55 85 C-70 20 -40 -20 0 -20 C45 -20 70 30 62 85 Z" fill="#0d2340"/>
+    <rect x="-18" y="55" width="13" height="35" rx="6" fill="#0d2340"/>
+    <rect x="8" y="55" width="13" height="35" rx="6" fill="#0d2340"/>
+    <path d="M-22 88 h22 M4 88 h22" stroke="#000" stroke-width="2" opacity="0.4"/>
+    <circle cx="0" cy="-40" r="40" fill="#0d2340"/>
+    <path d="M-38 -62 L-44 -98 L-12 -72 Z" fill="#0d2340"/>
+    <path d="M38 -62 L44 -98 L12 -72 Z" fill="#0d2340"/>
+    <path d="M-34 -68 L-37 -88 L-19 -73 Z" fill="#e8b96a" opacity="0.7"/>
+    <path d="M34 -68 L37 -88 L19 -73 Z" fill="#e8b96a" opacity="0.7"/>
+    <ellipse cx="-15" cy="-38" rx="6" ry="9" fill="#e8b96a"/>
+    <ellipse cx="15" cy="-38" rx="6" ry="9" fill="#e8b96a"/>
+    <circle cx="-15" cy="-37" r="2.4" fill="#0d2340"/>
+    <circle cx="15" cy="-37" r="2.4" fill="#0d2340"/>
+    <path d="M0 -26 l-5 -6 h10 Z" fill="#c9943a"/>
+    <path d="M0 -20 C-6 -14 -12 -16 -14 -18 M0 -20 C6 -14 12 -16 14 -18" stroke="#2a8c95" stroke-width="1.6" fill="none"/>
+    <g stroke="#2a8c95" stroke-width="1.2" opacity="0.8">
+      <path d="M-12 -24 L-48 -28 M-12 -20 L-48 -16"/>
+      <path d="M12 -24 L48 -28 M12 -20 L48 -16"/>
+    </g>
+    <path d="M-26 -8 C-12 6 12 6 26 -8" stroke="#c9943a" stroke-width="5" fill="none"/>
+  </g>
+</svg><figcaption class="figure-cap">A DRC é especialmente comum em gatos idosos — muitos sinais iniciais são sutis e facilmente confundidos com o envelhecimento.</figcaption></figure>
+
+
+    <h3>Sinais clínicos mais comuns na DRC</h3>
+    <h4>Poliúria</h4>
+    <p>A poliúria é definida como o aumento da produção urinária e trata-se de um dos sinais mais precoces e frequentes da DRC. À medida que os néfrons são destruídos, a capacidade de concentrar a urina diminui progressivamente. O tutor pode observar caixa de areia mais molhada, necessidade de trocar tapetes higiênicos com maior frequência, maior volume de urina durante passeios e episódios de micção dentro de casa.</p>
+
+    <h4>Polidipsia</h4>
+    <p>A polidipsia corresponde ao aumento da ingestão de água. Na maioria dos casos, surge como consequência da poliúria. O paciente perde grande quantidade de água pela urina e o organismo tenta compensar estimulando o centro da sede. Muitos tutores relatam que o paciente "passou a beber água como nunca antes".</p>
+
+    <h4>Perda de peso</h4>
+    <p>A perda progressiva de peso é extremamente comum na DRC, frequentemente ocorrendo mesmo quando o paciente continua se alimentando. Os fatores envolvidos são redução do apetite, catabolismo muscular, inflamação crônica, acidose metabólica e alterações hormonais.</p>
+
+    <h4>Hiporexia e anorexia</h4>
+    <p>A redução do apetite é uma das queixas mais frequentes dos tutores. O acúmulo de toxinas urêmicas provoca náusea, alteração do paladar, gastrite urêmica e desconforto gastrointestinal. Inicialmente o paciente torna-se seletivo. Com a progressão da doença, pode ocorrer anorexia completa.</p>
+
+    <h4>Vômitos</h4>
+    <p>Os vômitos são comuns principalmente em estágios mais avançados. A síndrome urêmica promove irritação da mucosa gastrointestinal e alterações metabólicas que estimulam o centro do vômito. A persistência dos vômitos contribui para desidratação e piora clínica.</p>
+
+    <h4>Halitose urêmica</h4>
+    <p>Caracterizada por odor forte e desagradável proveniente da cavidade oral, semelhante ao cheiro de amônia. O aumento da ureia sanguínea favorece sua conversão em amônia por bactérias presentes na boca. Esse sinal costuma indicar doença renal mais avançada.</p>
+
+    <h4>Úlceras orais</h4>
+    <p>Pacientes com síndrome urêmica grave podem desenvolver lesões ulcerativas na língua, gengiva e mucosa oral. Essas lesões são dolorosas e agravam ainda mais a redução do apetite.</p>
+
+    <h4>Hipertensão arterial sistêmica</h4>
+    <p>A hipertensão é uma das complicações mais importantes da DRC. Muitos pacientes são assintomáticos inicialmente. Quando sinais clínicos aparecem, podem incluir alterações visuais, midríase, desorientação, sangramento ocular e convulsões. Por esse motivo, a aferição periódica da pressão arterial deve fazer parte da rotina de monitoramento.</p>
+
+    <h3>Sinais clínicos mais comuns na IRA</h3>
+    <h4>Apatia</h4>
+    <p>A apatia costuma ser um dos primeiros sinais percebidos. O animal torna-se menos ativo, menos responsivo e menos interessado em brincadeiras e interação. Como a IRA possui evolução rápida, essa alteração geralmente surge de forma abrupta.</p>
+
+    <h4>Anorexia</h4>
+    <p>A perda completa do apetite é extremamente comum. Diferentemente da DRC, na qual o apetite costuma diminuir gradualmente, na IRA a anorexia pode instalar-se em poucas horas ou dias.</p>
+
+    <h4>Vômitos intensos</h4>
+    <p>Os vômitos frequentemente são mais graves e intensos do que os observados na DRC. Podem resultar em desidratação severa, distúrbios eletrolíticos e piora da perfusão renal.</p>
+
+    <h4>Desidratação</h4>
+    <p>A desidratação é uma alteração frequentemente observada em pacientes com IRA, podendo ser tanto causa quanto consequência da lesão renal. Sinais observados: mucosas secas, turgor cutâneo reduzido, enoftalmia e tempo de preenchimento capilar aumentado.</p>
+
+    <h4>Dor renal</h4>
+    <p>Alguns pacientes apresentam desconforto ou dor à palpação abdominal. Esse sinal é mais comum em situações como pielonefrite, obstruções urinárias e inflamação renal aguda. A presença de dor tende a favorecer o diagnóstico de um processo agudo.</p>
+
+    <h4>Oligúria e Anúria</h4>
+    <p>A oligúria (redução significativa da produção urinária — menor que 1 mL/kg/hora) é considerada um dos sinais de maior relevância prognóstica na IRA. A anúria representa uma emergência médica: sem intervenção rápida, a condição pode evoluir para óbito em curto período.</p>
+
+    <h3>Quando suspeitar de doença renal?</h3>
+    <div class="prognosis-split">
+      <div class="prog-box favorable">
+        <div class="prog-label">Suspeita de DRC</div>
+        <ul><li>Poliúria</li><li>Polidipsia</li><li>Perda de peso</li><li>Hiporexia</li><li>Hipertensão</li><li>Paciente geriátrico</li></ul>
+      </div>
+      <div class="prog-box unfavorable">
+        <div class="prog-label">Suspeita de IRA</div>
+        <ul><li>Instalação súbita dos sinais</li><li>Oligúria</li><li>Anúria</li><li>Exposição a toxinas</li><li>Obstrução urinária</li><li>Vômitos intensos</li></ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- CAP 7 -->
+  <section class="chapter" id="cap7">
+    <div class="chapter-header">
+      <div class="chapter-num">Capítulo 7</div>
+      <h2 class="chapter-title">Diagnóstico Laboratorial e por Imagem</h2>
+      <div class="chapter-title-line"></div>
+    </div>
+
+    <p>O diagnóstico das doenças renais raramente depende de um único exame. Na maioria dos casos, é necessário integrar informações obtidas a partir do histórico clínico, exame físico, exames laboratoriais, avaliação da pressão arterial e métodos de imagem. Um dos maiores desafios da nefrologia veterinária é que os rins possuem grande capacidade compensatória, podendo surgir alterações laboratoriais clássicas apenas quando uma parcela significativa da função renal já foi perdida.</p>
+
+    <h3>Exames laboratoriais</h3>
+
+    <h4>Hemograma</h4>
+    <p>Embora não seja específico para doenças renais, o hemograma fornece informações importantes. A <strong>anemia não regenerativa</strong> é uma alteração clássica da DRC, ocorrendo devido à redução da produção de eritropoietina. Características: normocítica, normocrômica, não regenerativa. <strong>Leucocitose</strong> pode indicar pielonefrite, infecções sistêmicas ou leptospirose. <strong>Hemoconcentração</strong> é frequentemente observada em pacientes desidratados.</p>
+
+    <h4>Bioquímica sérica</h4>
+    <p><strong>Ureia:</strong> produzida no fígado a partir do metabolismo das proteínas. Aumenta em doença renal, desidratação, dietas hiperproteicas e hemorragia gastrointestinal. Não deve ser interpretada isoladamente.</p>
+    <p><strong>Creatinina:</strong> produzida a partir do metabolismo muscular, é um dos principais marcadores de filtração glomerular. Só costuma aumentar quando aproximadamente 65% a 75% da função renal já foi perdida.</p>
+    <p><strong>SDMA (Dimetilarginina Simétrica):</strong> representa um dos maiores avanços recentes na nefrologia veterinária. Detecta alterações precocemente, sofre pouca influência da massa muscular e pode elevar-se antes da creatinina — permitindo identificar comprometimento renal meses antes dos marcadores tradicionais.</p>
+    <p><strong>Fósforo:</strong> a hiperfosfatemia pode resultar em progressão da doença renal, mineralização tecidual e hiperparatireoidismo renal secundário.</p>
+    <p><strong>Potássio:</strong> a hipercalemia (mais comum em IRA oligúrica ou obstrutiva) pode causar bradicardia, arritmias e parada cardíaca. A hipocalemia (frequente em gatos com DRC) pode causar fraqueza muscular e cervicoflexão ventral.</p>
+
+    <h4>Urinálise</h4>
+    <p>A urinálise é um dos exames mais importantes e frequentemente subutilizados. Muitas vezes, alterações urinárias surgem antes da elevação da creatinina. Permite avaliar densidade urinária, proteinúria, sedimento (hematúria, piúria, cristalúria, cilindrúria, bacteriúria).</p>
+
+    <h4>Relação Proteína:Creatinina Urinária (UPC)</h4>
+    <div class="upc-grid">
+      <div class="upc-card safe"><div class="upc-label">Não proteinúrico</div><div class="upc-value">UPC &lt; 0,2</div></div>
+      <div class="upc-card border"><div class="upc-label">Limítrofe</div><div class="upc-value">UPC 0,2–0,5</div></div>
+      <div class="upc-card danger"><div class="upc-label">Proteinúrico</div><div class="upc-value">UPC &gt; 0,5</div></div>
+    </div>
+
+    <h3>Mensuração da pressão arterial</h3>
+    <p>A hipertensão arterial sistêmica é uma complicação comum da DRC. Os órgãos mais afetados são retina, encéfalo, coração e rins. A aferição da pressão arterial deve fazer parte da avaliação rotineira dos pacientes renais.</p>
+
+    <h3>Diagnóstico por imagem</h3>
+    <h4>Ultrassonografia renal</h4>
+    <p>É considerada o principal exame de imagem na investigação das nefropatias. Permite avaliar tamanho renal, formato, ecogenicidade, relação córtico-medular, mineralizações, cistos, hidronefrose, obstruções e alterações ureterais.</p>
+    <p>Achados sugestivos de DRC: rins reduzidos, contornos irregulares, fibrose, perda da diferenciação córtico-medular. Achados sugestivos de IRA: rins normais ou aumentados, edema renal, alterações inflamatórias agudas.</p>
+
+    <h4>Radiografia</h4>
+    <p>Continua sendo uma ferramenta útil principalmente para urolitíase, mineralizações, alterações de tamanho renal e avaliação abdominal geral.</p>
+  </section>
+
+  <!-- CAP 8 -->
+  <section class="chapter" id="cap8">
+    <div class="chapter-header">
+      <div class="chapter-num">Capítulo 8</div>
+      <h2 class="chapter-title">Estadiamento da DRC — Sistema IRIS</h2>
+      <div class="chapter-title-line"></div>
+    </div>
+
+    <p>A International Renal Interest Society (IRIS) é uma organização internacional formada por especialistas em nefrologia e urologia veterinária, responsável por desenvolver diretrizes amplamente utilizadas para o diagnóstico, estadiamento e tratamento das doenças renais em cães e gatos. O sistema IRIS é considerado a principal ferramenta para acompanhamento da DRC na medicina veterinária.</p>
+
+    <h3>Por que estadiar um paciente renal?</h3>
+    <p>O simples diagnóstico de DRC não fornece informações suficientes sobre a gravidade da doença. O estadiamento permite determinar a gravidade, avaliar risco de progressão, estabelecer metas terapêuticas, monitorar evolução clínica, orientar o tutor de forma mais precisa e padronizar o acompanhamento médico.</p>
+
+    <h3>Estágios IRIS</h3>
+
+    <figure class="figure framed"><span class="figure-tag">Figura 5 — Estadiamento IRIS</span><svg viewBox="0 0 760 250" xmlns="http://www.w3.org/2000/svg" font-family="'Source Serif 4',Georgia,serif">
+  <!-- gradient bar -->
+  <defs><linearGradient id="iris" x1="0" x2="1"><stop offset="0" stop-color="#4caf83"/><stop offset="0.33" stop-color="#e8b96a"/><stop offset="0.66" stop-color="#e67c3a"/><stop offset="1" stop-color="#c0392b"/></linearGradient></defs>
+  <rect x="40" y="200" width="680" height="6" rx="3" fill="url(#iris)"/>
+  <g>
+    <!-- 4 kidneys, shrinking & changing color -->
+    <g transform="translate(90,70)">
+      <path d="M40 0 C8 0 -10 22 -10 45 C-10 68 8 90 40 90 C56 90 64 80 66 70 C58 74 52 68 52 58 C52 48 66 48 66 38 C66 28 52 28 52 18 C52 10 58 6 66 10 C64 4 56 0 40 0Z" fill="#4caf83" opacity="0.85" stroke="#0d2340" stroke-width="2"/>
+    </g>
+    <text x="125" y="55" font-size="12.5" fill="#4caf83" font-weight="700" text-anchor="middle">Estágio 1</text>
+    <text x="125" y="230" font-size="11" fill="#3d4f5c" text-anchor="middle">Lesão precoce</text>
+
+    <g transform="translate(265,78)">
+      <path d="M36 0 C8 0 -8 20 -8 40 C-8 60 8 80 36 80 C50 80 57 71 59 62 C52 66 47 60 47 51 C47 42 59 42 59 33 C59 24 47 24 47 16 C47 9 52 5 59 9 C57 3 50 0 36 0Z" fill="#e8b96a" opacity="0.9" stroke="#0d2340" stroke-width="2"/>
+    </g>
+    <text x="300" y="55" font-size="12.5" fill="#c9943a" font-weight="700" text-anchor="middle">Estágio 2</text>
+    <text x="300" y="230" font-size="11" fill="#3d4f5c" text-anchor="middle">Azotemia leve</text>
+
+    <g transform="translate(440,86)">
+      <path d="M31 0 C7 0 -7 17 -7 34 C-7 51 7 68 31 68 C43 68 49 60 51 53 C45 56 41 51 41 43 C41 36 51 36 51 28 C51 20 41 20 41 14 C41 8 45 4 51 8 C49 3 43 0 31 0Z" fill="#e67c3a" opacity="0.9" stroke="#0d2340" stroke-width="2"/>
+    </g>
+    <text x="475" y="55" font-size="12.5" fill="#e67c3a" font-weight="700" text-anchor="middle">Estágio 3</text>
+    <text x="475" y="230" font-size="11" fill="#3d4f5c" text-anchor="middle">Azotemia moderada</text>
+
+    <g transform="translate(615,94)">
+      <path d="M26 0 C6 0 -6 14 -6 28 C-6 42 6 56 26 56 C36 56 41 50 43 44 C38 46 35 42 35 36 C35 30 43 30 43 23 C43 16 35 16 35 11 C35 6 38 3 43 6 C41 2 36 0 26 0Z" fill="#c0392b" opacity="0.9" stroke="#0d2340" stroke-width="2"/>
+    </g>
+    <text x="650" y="55" font-size="12.5" fill="#c0392b" font-weight="700" text-anchor="middle">Estágio 4</text>
+    <text x="650" y="230" font-size="11" fill="#3d4f5c" text-anchor="middle">Azotemia grave</text>
+  </g>
+  <text x="40" y="185" font-size="11" fill="#6b7f8c">função renal preservada</text>
+  <text x="720" y="185" font-size="11" fill="#6b7f8c" text-anchor="end">função renal comprometida</text>
+</svg><figcaption class="figure-cap">Progressão da DRC ao longo dos quatro estágios IRIS, da lesão precoce ao comprometimento renal grave.</figcaption></figure>
+
+    <div class="stages-grid">
+      <div class="stage-card s1">
+        <div class="stage-num">Estágio 1</div>
+        <div class="stage-name">Lesão Renal Precoce</div>
+        <div class="stage-detail">Creatinina normal com evidências de lesão (SDMA elevada, proteinúria, alterações ultrassonográficas). <strong>Cães:</strong> &lt;1,4 mg/dL · <strong>Gatos:</strong> &lt;1,6 mg/dL</div>
+      </div>
+      <div class="stage-card s2">
+        <div class="stage-num">Estágio 2</div>
+        <div class="stage-name">Azotemia Leve</div>
+        <div class="stage-detail">Elevação discreta da creatinina. Muitos pacientes com boa qualidade de vida. <strong>Cães:</strong> 1,4–2,0 mg/dL · <strong>Gatos:</strong> 1,6–2,8 mg/dL</div>
+      </div>
+      <div class="stage-card s3">
+        <div class="stage-num">Estágio 3</div>
+        <div class="stage-name">Azotemia Moderada</div>
+        <div class="stage-detail">Perda funcional renal significativa. Maioria dos pacientes com sinais evidentes. <strong>Cães:</strong> 2,1–5,0 mg/dL · <strong>Gatos:</strong> 2,9–5,0 mg/dL</div>
+      </div>
+      <div class="stage-card s4">
+        <div class="stage-num">Estágio 4</div>
+        <div class="stage-name">Azotemia Grave</div>
+        <div class="stage-detail">Função renal severamente comprometida. Síndrome urêmica frequente. <strong>Cães e Gatos:</strong> &gt;5,0 mg/dL</div>
+      </div>
+    </div>
+
+    <h3>Subestadiamento pela proteinúria</h3>
+    <p>Após determinar o estágio principal, deve-se avaliar a presença de proteinúria persistente por meio da Relação Proteína:Creatinina Urinária (UPC). A perda contínua de proteínas pela urina agrava a lesão glomerular, acelera a progressão da DRC e está associada a menor sobrevida.</p>
+
+    <h3>Subestadiamento pela pressão arterial</h3>
+    <div class="table-wrap"><table class="bp-table">
+      <thead>
+        <tr><th>Classificação</th><th>PAS</th><th>Risco</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Risco mínimo</td><td>&lt;140 mmHg</td><td>Baixa probabilidade de lesão orgânica</td></tr>
+        <tr><td>Risco baixo</td><td>140–159 mmHg</td><td>Monitoramento periódico recomendado</td></tr>
+        <tr><td>Risco moderado</td><td>160–179 mmHg</td><td>Maior risco de lesão em órgãos-alvo. Tratamento geralmente indicado.</td></tr>
+        <tr><td>Risco alto</td><td>≥180 mmHg</td><td>Alto risco de retinopatia, lesões neurológicas e cardíacas. Intervenção imediata.</td></tr>
+      </tbody>
+    </table></div>
+
+    <div class="callout gold">
+      <p><strong>Exemplo prático de estadiamento:</strong> Gato, 12 anos. Creatinina: 3,2 mg/dL · UPC: 0,6 · PAS: 170 mmHg → <strong>IRIS Estágio 3 / Proteinúrico / Risco moderado de lesão por hipertensão.</strong> Trata-se de um paciente com DRC moderadamente avançada, apresentando dois fatores importantes de progressão: proteinúria e hipertensão arterial.</p>
+    </div>
+  </section>
+
+  <!-- CAP 9 -->
+  <section class="chapter" id="cap9">
+    <div class="chapter-header">
+      <div class="chapter-num">Capítulo 9</div>
+      <h2 class="chapter-title">Tratamento da Injúria Renal Aguda (IRA)</h2>
+      <div class="chapter-title-line"></div>
+    </div>
+
+    <p>A Injúria Renal Aguda (IRA) representa uma emergência médica frequente na clínica e na medicina intensiva de pequenos animais. Sua evolução pode ser rápida e potencialmente fatal, especialmente quando associada a oligúria, anúria, hipercalemia ou síndrome urêmica grave. O sucesso terapêutico depende de diagnóstico precoce, identificação da causa primária e instituição rápida do tratamento adequado.</p>
+
+    <h3>Objetivos do tratamento</h3>
+    <div class="checklist">
+      <div class="checklist-item"><span class="check">✓</span><span>Restaurar a perfusão renal</span></div>
+      <div class="checklist-item"><span class="check">✓</span><span>Corrigir a hipovolemia</span></div>
+      <div class="checklist-item"><span class="check">✓</span><span>Manter equilíbrio hídrico</span></div>
+      <div class="checklist-item"><span class="check">✓</span><span>Corrigir distúrbios eletrolíticos</span></div>
+      <div class="checklist-item"><span class="check">✓</span><span>Corrigir alterações ácido-base</span></div>
+      <div class="checklist-item"><span class="check">✓</span><span>Controlar complicações sistêmicas</span></div>
+      <div class="checklist-item"><span class="check">✓</span><span>Tratar a causa primária</span></div>
+      <div class="checklist-item"><span class="check">✓</span><span>Preservar a função renal residual</span></div>
+    </div>
+
+    <h3>Fluidoterapia — o pilar do tratamento da IRA</h3>
+    <p>A fluidoterapia é considerada a medida terapêutica mais importante na maioria dos casos de Injúria Renal Aguda. Seu principal objetivo é restaurar a perfusão tecidual e renal. A adequada reposição de fluidos pode melhorar a Taxa de Filtração Glomerular (TFG), corrigir a hipovolemia, auxiliar na eliminação de toxinas e melhorar a perfusão dos néfrons viáveis.</p>
+    <p>Os cristaloides isotônicos balanceados são geralmente os fluidos de primeira escolha: Ringer com lactato, Plasma-Lyte e soluções balanceadas de eletrólitos. O excesso de fluidos pode ser tão prejudicial quanto sua deficiência — o monitoramento rigoroso é indispensável.</p>
+
+    <h3>Correção da hipercalemia</h3>
+    <p>A hipercalemia grave pode causar alterações cardíacas fatais. Seu tratamento deve ser imediato quando identificada.</p>
+    <div class="drug-grid">
+      <div class="drug-card"><div class="drug-name">Gluconato de cálcio</div><div class="drug-class">Estabilizador de membrana</div><div class="drug-note">Não reduz o potássio. Estabiliza a membrana cardíaca e reduz o risco de arritmias. Efeito rápido, porém temporário.</div></div>
+      <div class="drug-card"><div class="drug-name">Insulina + Glicose</div><div class="drug-class">Redistribuidor de potássio</div><div class="drug-note">Promove a entrada do potássio para o interior das células, reduzindo temporariamente a concentração sérica. Glicose previne hipoglicemia.</div></div>
+      <div class="drug-card"><div class="drug-name">Bicarbonato de sódio</div><div class="drug-class">Alcalinizante</div><div class="drug-note">Considerado em acidose metabólica significativa associada à hipercalemia. Uso criterioso, baseado em avaliação clínica e laboratorial.</div></div>
+    </div>
+
+    <h3>Controle de náusea e vômitos</h3>
+    <p>Antieméticos frequentemente utilizados: maropitant, ondansetrona e metoclopramida. O controle adequado melhora o bem-estar do paciente, a aceitação alimentar e a recuperação geral.</p>
+
+    <h3>Tratamento da causa primária</h3>
+    <p>Nenhum protocolo será eficaz se a causa da lesão renal não for identificada e tratada. Exemplos:</p>
+    <ul>
+      <li><strong>Leptospirose:</strong> antibioticoterapia específica e controle das complicações sistêmicas</li>
+      <li><strong>Pielonefrite:</strong> cultura urinária e antibioticoterapia direcionada</li>
+      <li><strong>Intoxicações:</strong> descontaminação quando indicada e terapias específicas para cada agente</li>
+      <li><strong>Obstrução uretral:</strong> desobstrução imediata, correção das alterações eletrolíticas e monitoramento intensivo</li>
+    </ul>
+
+    <h3>Terapia renal substitutiva (Diálise)</h3>
+    <p>Quando considerar: hipercalemia refratária, anúria persistente, síndrome urêmica grave ou sobrecarga hídrica não controlável. A diálise não trata a causa primária — sua função é remover toxinas urêmicas, corrigir eletrólitos, controlar o equilíbrio hídrico e ganhar tempo para recuperação renal.</p>
+
+    <h3>Prognóstico</h3>
+    <div class="prognosis-split">
+      <div class="prog-box favorable">
+        <div class="prog-label">Favoráveis</div>
+        <ul><li>Diagnóstico precoce</li><li>Causa reversível</li><li>Produção urinária preservada</li><li>Resposta rápida à fluidoterapia</li></ul>
+      </div>
+      <div class="prog-box unfavorable">
+        <div class="prog-label">Desfavoráveis</div>
+        <ul><li>Anúria persistente</li><li>Hipercalemia grave</li><li>Síndrome urêmica avançada</li><li>Necessidade de diálise</li><li>Lesão renal extensa</li></ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- CAP 10 -->
+  <section class="chapter" id="cap10">
+    <div class="chapter-header">
+      <div class="chapter-num">Capítulo 10</div>
+      <h2 class="chapter-title">Tratamento da Doença Renal Crônica (DRC)</h2>
+      <div class="chapter-title-line"></div>
+    </div>
+
+    <p>A Doença Renal Crônica é uma enfermidade progressiva e irreversível. Embora a função renal perdida não possa ser recuperada na maioria dos casos, diversas estratégias terapêuticas são capazes de retardar significativamente a evolução da doença. O sucesso terapêutico depende da combinação de medidas nutricionais, farmacológicas e de acompanhamento periódico, sempre com participação ativa dos tutores.</p>
+
+    <h3>Dieta renal: a principal intervenção terapêutica</h3>
+    <p>A terapia nutricional é considerada a medida isolada mais eficaz para aumentar a sobrevida de pacientes com DRC. Diversos estudos demonstram que cães e gatos alimentados com dietas renais apresentam menor progressão da doença e melhor qualidade de vida quando comparados aos alimentados com dietas convencionais. Características das dietas renais:</p>
+    <ul>
+      <li>Redução do teor de fósforo</li>
+      <li>Proteína de alta qualidade e quantidade controlada</li>
+      <li>Maior teor de ácidos graxos ômega-3 (propriedades anti-inflamatórias)</li>
+      <li>Menor teor de sódio (contribui para o controle da hipertensão)</li>
+    </ul>
+    <div class="callout">
+      <p>A transição alimentar deve ser gradual ao longo de 7 a 14 dias, misturando progressivamente a nova dieta ao alimento habitual para evitar rejeição.</p>
+    </div>
+
+    <h3>Controle da proteinúria</h3>
+    <p>A perda persistente de proteínas pela urina contribui para acelerar a destruição dos néfrons remanescentes. Medicamentos utilizados:</p>
+    <div class="drug-grid">
+      <div class="drug-card"><div class="drug-name">Benazepril</div><div class="drug-class">IECA</div><div class="drug-note">Redução da pressão intraglomerular, diminuição da proteinúria e retardo da progressão da doença.</div></div>
+      <div class="drug-card"><div class="drug-name">Enalapril</div><div class="drug-class">IECA</div><div class="drug-note">Outro IECA amplamente utilizado com objetivos semelhantes ao benazepril.</div></div>
+      <div class="drug-card"><div class="drug-name">Telmisartana</div><div class="drug-class">Bloqueador de receptores AT₂</div><div class="drug-note">Particularmente utilizada em gatos. Excelente eficácia no controle da proteinúria.</div></div>
+    </div>
+
+    <h3>Controle da hipertensão arterial</h3>
+    <p>Meta terapêutica geral: PAS &lt; 160 mmHg. Possíveis consequências da hipertensão não controlada nos olhos (hemorragias retinianas, descolamento, cegueira súbita), sistema nervoso (convulsões, encefalopatia) e cardiovascular (hipertrofia ventricular, insuficiência cardíaca).</p>
+    <div class="drug-grid">
+      <div class="drug-card"><div class="drug-name">Amlodipina</div><div class="drug-class">Bloqueador de canal de cálcio</div><div class="drug-note">Considerada o fármaco de escolha para controle da hipertensão em gatos.</div></div>
+      <div class="drug-card"><div class="drug-name">Telmisartana</div><div class="drug-class">BRA</div><div class="drug-note">Pode auxiliar tanto no controle da pressão arterial quanto da proteinúria.</div></div>
+    </div>
+
+    <h3>Controle da hiperfosfatemia</h3>
+    <p>Primeira medida: dieta renal. Quando a dieta isoladamente não é suficiente, podem ser utilizados quelantes intestinais: hidróxido de alumínio e carbonato de cálcio. Objetivo: manter o fósforo dentro das metas recomendadas para o estágio IRIS correspondente.</p>
+
+    <h3>Manejo da desidratação</h3>
+    <p>Estratégias de hidratação: água sempre disponível, fontes de água circulante (especialmente úteis para gatos), dietas úmidas e fluidoterapia subcutânea periódica em pacientes selecionados nos estágios mais avançados.</p>
+
+    <h3>Controle da síndrome urêmica</h3>
+    <p>Medicamentos frequentemente utilizados: maropitant (controle de náusea e vômitos), ondansetrona (antiemético) e omeprazol (em pacientes com gastrite associada).</p>
+
+    <h3>Tratamento da anemia renal</h3>
+    <p>A redução da produção de eritropoietina pelos rins leva ao desenvolvimento de anemia não regenerativa. Opções terapêuticas: eritropoetina recombinante (em casos selecionados) e suplementação de ferro.</p>
+
+    <h3>O papel do tutor no sucesso terapêutico</h3>
+    <p>Poucas doenças dependem tanto da participação do tutor quanto a DRC. Os tutores devem compreender a natureza progressiva da doença, a importância da dieta renal, a necessidade de medicações contínuas e a importância dos retornos periódicos. Uma comunicação clara e objetiva aumenta significativamente a adesão ao tratamento.</p>
+  </section>
+
+  <!-- CAP 11 -->
+  <section class="chapter" id="cap11">
+    <div class="chapter-header">
+      <div class="chapter-num">Capítulo 11</div>
+      <h2 class="chapter-title">Prognóstico</h2>
+      <div class="chapter-title-line"></div>
+    </div>
+
+    <p>Uma das perguntas mais frequentes feitas pelos tutores após o diagnóstico de uma doença renal é: <em>"Meu animal vai se recuperar?"</em> A resposta para essa pergunta nem sempre é simples. O prognóstico dos pacientes renais depende de diversos fatores, incluindo a causa da doença, a rapidez do diagnóstico, a resposta ao tratamento e o estágio em que a enfermidade é identificada.</p>
+
+    <h3>Prognóstico da Injúria Renal Aguda (IRA)</h3>
+    <p>Uma das principais diferenças entre a IRA e a DRC é que a Injúria Renal Aguda possui potencial de reversibilidade. Dependendo da intensidade da lesão e da rapidez da intervenção, alguns pacientes podem recuperar completamente a função renal. Outros podem apresentar recuperação parcial. Em casos mais graves, a lesão pode evoluir para insuficiência renal crônica ou resultar em óbito.</p>
+
+    <h4>Fatores associados a melhor prognóstico</h4>
+    <ul>
+      <li>Diagnóstico precoce</li>
+      <li>Produção urinária preservada</li>
+      <li>Causa reversível (desidratação, hipotensão, obstruções corrigidas precocemente)</li>
+      <li>Resposta rápida ao tratamento</li>
+    </ul>
+
+    <h4>Fatores associados a pior prognóstico na IRA</h4>
+    <ul>
+      <li>Anúria persistente</li>
+      <li>Hipercalemia grave</li>
+      <li>Necessidade de diálise</li>
+      <li>Diagnóstico tardio</li>
+    </ul>
+
+    <h3>Prognóstico da Doença Renal Crônica (DRC)</h3>
+    <p>Ao contrário da IRA, a DRC é considerada irreversível. Isso significa que os néfrons perdidos não podem ser recuperados. Entretanto, isso não significa que o paciente tenha expectativa de vida reduzida imediatamente após o diagnóstico — muitos cães e gatos vivem por anos quando adequadamente tratados.</p>
+
+    <h4>O papel do estadiamento IRIS</h4>
+    <p>Estágio 1: prognóstico favorável. Estágio 2: bom a moderado. Estágio 3: moderado, complicações tornam-se mais frequentes. Estágio 4: reservado, síndrome urêmica e múltiplas alterações sistêmicas.</p>
+
+    <h4>Indicadores de pior prognóstico na DRC</h4>
+    <ul>
+      <li>Síndrome urêmica grave (vômitos persistentes, úlceras orais, alterações neurológicas)</li>
+      <li>Hipertensão não controlada</li>
+      <li>Hiperfosfatemia persistente</li>
+      <li>Anemia importante</li>
+      <li>Perda muscular acentuada</li>
+    </ul>
+
+    <h3>Qualidade de vida versus tempo de sobrevida</h3>
+    <div class="callout">
+      <p>Na nefrologia veterinária, a qualidade de vida deve ser considerada tão importante quanto a expectativa de vida. O objetivo não é apenas prolongar a sobrevivência, mas garantir conforto e bem-estar: manutenção do apetite, ausência de náusea, controle da dor, hidratação adequada, interação com a família e atividade compatível com a condição clínica.</p>
+    </div>
+
+    <h3>Comunicação do prognóstico aos tutores</h3>
+    <p>Uma comunicação clara e honesta é fundamental. O médico-veterinário deve evitar tanto o excesso de pessimismo quanto expectativas irreais. Princípios importantes: explicar a doença em linguagem acessível, destacar os objetivos do tratamento (qualidade de vida e controle da progressão), enfatizar a importância do acompanhamento e individualizar cada caso — não existem duas doenças renais exatamente iguais.</p>
+  </section>
+
+  <!-- CAP 12 -->
+  <section class="chapter" id="cap12">
+    <div class="chapter-header">
+      <div class="chapter-num">Capítulo 12</div>
+      <h2 class="chapter-title">Prevenção das Doenças Renais em Cães e Gatos</h2>
+      <div class="chapter-title-line"></div>
+    </div>
+
+    <p>As doenças renais estão entre as enfermidades mais frequentes na clínica de pequenos animais, especialmente em pacientes adultos e geriátricos. Embora nem todos os casos possam ser evitados, muitas situações que levam à lesão renal podem ser prevenidas ou identificadas precocemente através de medidas simples de monitoramento e cuidados adequados.</p>
+
+    <div class="callout navy">
+      <p><strong>Prevenção primária:</strong> Busca evitar que a lesão renal ocorra. <strong>Prevenção secundária:</strong> Busca identificar alterações precoces antes do surgimento de sinais clínicos evidentes. Em muitos pacientes, a prevenção secundária é a ferramenta mais eficaz para aumentar a expectativa e a qualidade de vida.</p>
+    </div>
+
+    <h3>Prevenção para tutores</h3>
+    <h4>Garantir acesso constante à água fresca</h4>
+    <p>Disponibilizar água limpa diariamente, oferecer múltiplos pontos de água na residência, monitorar o consumo hídrico e trocar a água regularmente.</p>
+
+    <figure class="figure illus"><svg viewBox="0 0 760 300" xmlns="http://www.w3.org/2000/svg">
+  <ellipse cx="380" cy="266" rx="300" ry="18" fill="#1a6b72" opacity="0.06"/>
+  <!-- cat sitting, facing the bowl on the right -->
+  <g transform="translate(300,160)">
+    <path d="M-70 80 C-120 80 -120 20 -80 22" fill="none" stroke="#1a6b72" stroke-width="12" stroke-linecap="round"/>
+    <path d="M-62 85 C-70 20 -40 -20 0 -20 C45 -20 70 30 62 85 Z" fill="#1a6b72"/>
+    <rect x="2" y="55" width="13" height="35" rx="6" fill="#1a6b72"/>
+    <rect x="24" y="55" width="13" height="35" rx="6" fill="#1a6b72"/>
+    <path d="M-2 88 h22 M20 88 h22" stroke="#0d4146" stroke-width="2"/>
+    <!-- head turned right toward bowl -->
+    <circle cx="12" cy="-40" r="40" fill="#1a6b72"/>
+    <path d="M-26 -62 L-32 -98 L0 -72 Z" fill="#1a6b72"/>
+    <path d="M50 -62 L56 -98 L24 -72 Z" fill="#1a6b72"/>
+    <path d="M-22 -68 L-25 -88 L-7 -73 Z" fill="#e8b96a" opacity="0.7"/>
+    <path d="M46 -68 L49 -88 L31 -73 Z" fill="#e8b96a" opacity="0.7"/>
+    <ellipse cx="2" cy="-40" rx="5.5" ry="8" fill="#0d2340"/>
+    <ellipse cx="26" cy="-40" rx="5.5" ry="8" fill="#0d2340"/>
+    <path d="M14 -28 l-5 -6 h10 Z" fill="#e8b96a"/>
+    <path d="M14 -22 C8 -16 2 -18 0 -20 M14 -22 C20 -16 26 -18 28 -20" stroke="#0d4146" stroke-width="1.5" fill="none"/>
+    <g stroke="#0d4146" stroke-width="1.2" opacity="0.7">
+      <path d="M26 -26 L62 -30 M26 -22 L62 -18"/>
+    </g>
+    <path d="M-12 -8 C2 6 26 6 40 -8" stroke="#c9943a" stroke-width="5" fill="none"/>
+  </g>
+  <!-- water bowl -->
+  <g transform="translate(470,232)">
+    <path d="M-55 0 C-55 28 55 28 55 0 Z" fill="#2a8c95"/>
+    <ellipse cx="0" cy="0" rx="55" ry="13" fill="#7fc3c8"/>
+    <ellipse cx="0" cy="-1" rx="44" ry="9" fill="#bfe3e5"/>
+    <ellipse cx="-12" cy="-2" rx="9" ry="2.6" fill="#fff" opacity="0.85"/>
+    <path d="M30 -22 q4 8 0 12 q-4 -4 0 -12Z" fill="#7fc3c8"/>
+  </g>
+  <text x="470" y="285" font-size="12" fill="#6b7f8c" text-anchor="middle" font-family="'Source Serif 4',serif">água fresca sempre disponível</text>
+</svg><figcaption class="figure-cap">Acesso constante à água fresca é uma das medidas preventivas mais simples e eficazes, sobretudo para gatos.</figcaption></figure>
+
+
+    <h4>Estimular a ingestão de água em gatos</h4>
+    <p>Os gatos possuem menor estímulo natural para ingestão hídrica. Estratégias incluem fontes de água circulante, múltiplos recipientes distribuídos em diferentes ambientes e dietas úmidas, que podem aumentar significativamente a ingestão hídrica diária.</p>
+
+    <h4>Alimentação adequada</h4>
+    <p>Utilizar alimentos balanceados, evitar dietas caseiras sem formulação adequada, não oferecer excesso de petiscos e evitar alimentos potencialmente tóxicos.</p>
+
+    <h4>Evitar automedicação</h4>
+    <p>A administração de medicamentos sem orientação veterinária representa uma importante causa de lesão renal. Alguns fármacos podem causar nefrotoxicidade quando utilizados inadequadamente (anti-inflamatórios, certos antibióticos, analgésicos humanos). <strong>Nenhum medicamento deve ser administrado sem prescrição veterinária.</strong></p>
+
+    <h4>Prevenção de intoxicações</h4>
+    <p>Substâncias tóxicas para cães: etilenoglicol (anticongelantes), uvas, passas. Substâncias tóxicas para gatos: lírios (Lilium spp.), etilenoglicol, certos medicamentos humanos. Medidas preventivas: armazenar produtos químicos em locais seguros, evitar acesso a plantas tóxicas, manter medicamentos fora do alcance e procurar atendimento imediato em casos de suspeita de intoxicação.</p>
+
+    <h3>Importância dos check-ups periódicos</h3>
+    <p>Os exames preventivos representam a principal ferramenta para diagnóstico precoce da DRC. Pacientes geriátricos idealmente devem realizar check-ups completos pelo menos uma vez ao ano. Exames recomendados: hemograma, bioquímica sérica, creatinina, SDMA, urinálise, pressão arterial e ultrassonografia quando indicada.</p>
+
+    <h3>O papel da SDMA na prevenção</h3>
+    <p>A introdução da SDMA revolucionou a detecção precoce das doenças renais. Esse biomarcador permite identificar redução da função renal antes da elevação da creatinina em muitos pacientes. Sua inclusão em programas de check-up geriátrico é altamente recomendada.</p>
+
+    <div class="callout gold">
+      <p>Na nefrologia veterinária, <strong>cada néfron preservado faz diferença</strong>. Uma vez destruídos, os néfrons não são substituídos. Por isso, toda estratégia capaz de evitar lesões ou retardar sua progressão possui enorme impacto clínico. Investir em prevenção significa diagnosticar mais cedo, tratar mais rapidamente, preservar a função renal, melhorar a qualidade de vida e aumentar a sobrevida dos pacientes.</p>
+    </div>
+  </section>
+
+  <!-- CAP 13 -->
+  <section class="chapter" id="cap13">
+    <div class="chapter-header">
+      <div class="chapter-num">Capítulo 13</div>
+      <h2 class="chapter-title">Fluxogramas Clínicos</h2>
+      <div class="chapter-title-line"></div>
+    </div>
+
+    <p>Na rotina clínica, os pacientes renais podem apresentar sinais inespecíficos, exames laboratoriais alterados e diferentes graus de comprometimento sistêmico. Os fluxogramas a seguir auxiliam na organização do raciocínio clínico, reduzindo erros diagnósticos e facilitando a tomada de decisão. Não substituem a avaliação individualizada do paciente, mas servem como ferramentas práticas para orientar a investigação diagnóstica.</p>
+
+    <div class="flowchart">
+      <div class="flowchart-title">Fluxograma 1 — Abordagem inicial do paciente azotêmico</div>
+      <div class="flow-step"><div class="flow-box decision">Paciente azotêmico</div></div>
+      <div class="flow-connector">↓</div>
+      <div class="flow-step"><div class="flow-box">Avaliar estado de hidratação</div></div>
+      <div class="flow-connector">↓</div>
+      <div class="flow-step"><div class="flow-box decision">Paciente desidratado?</div></div>
+      <div class="flow-connector">↓ SIM</div>
+      <div class="flow-step flow-indent"><div class="flow-box">Instituir fluidoterapia → Reavaliação de ureia e creatinina</div></div>
+      <div class="flow-connector flow-indent">↓ Azotemia persistiu?</div>
+      <div class="flow-step flow-indent"><div class="flow-box action">NÃO → Azotemia Pré-Renal corrigida | SIM → Investigar doença renal</div></div>
+    </div>
+
+    <div class="flowchart">
+      <div class="flowchart-title">Fluxograma 2 — Diferenciação entre IRA e DRC</div>
+      <div class="flow-step"><div class="flow-box decision">Paciente com azotemia</div></div>
+      <div class="flow-connector">↓</div>
+      <div class="flow-step"><div class="flow-box">Avaliar histórico clínico</div></div>
+      <div class="flow-connector">↓</div>
+      <div class="flow-step"><div class="flow-box decision">Início súbito dos sinais?</div></div>
+      <div class="flow-connector">↓ SIM</div>
+      <div class="flow-step flow-indent"><div class="flow-box action">Suspeitar de IRA → Investigar: toxinas, obstruções, infecções, hipovolemia</div></div>
+      <div class="flow-connector">↓ NÃO — Histórico prolongado?</div>
+      <div class="flow-step flow-indent"><div class="flow-box action">Suspeitar de DRC → Investigar: poliúria, polidipsia, perda de peso, hipertensão</div></div>
+    </div>
+
+    <div class="flowchart">
+      <div class="flowchart-title">Fluxograma 3 — Investigação da poliúria e polidipsia</div>
+      <div class="flow-step"><div class="flow-box decision">Poliúria e polidipsia</div></div>
+      <div class="flow-connector">↓</div>
+      <div class="flow-step"><div class="flow-box">Confirmar aumento do consumo hídrico → Urinálise + Bioquímica sérica</div></div>
+      <div class="flow-connector">↓ Densidade urinária reduzida?</div>
+      <div class="flow-step flow-indent"><div class="flow-box action">Investigar: DRC, diabetes mellitus, hiperadrenocorticismo, pielonefrite, distúrbios eletrolíticos</div></div>
+    </div>
+
+    <div class="flowchart">
+      <div class="flowchart-title">Fluxograma 4 — Paciente com oligúria ou anúria</div>
+      <div class="flow-step"><div class="flow-box decision">Oligúria / Anúria</div></div>
+      <div class="flow-connector">↓</div>
+      <div class="flow-step"><div class="flow-box">Confirmar produção urinária → Avaliar hidratação e perfusão → Corrigir hipovolemia</div></div>
+      <div class="flow-connector">↓ Reavaliação: Persistência?</div>
+      <div class="flow-step flow-indent"><div class="flow-box action">SIM → Investigar: IRA grave, obstrução urinária, ruptura vesical, lesão tubular severa</div></div>
+    </div>
+
+    <div class="flowchart">
+      <div class="flowchart-title">Fluxograma 5 — Manejo da hipercalemia</div>
+      <div class="flow-step"><div class="flow-box decision">Hipercalemia</div></div>
+      <div class="flow-connector">↓</div>
+      <div class="flow-step"><div class="flow-box">Realizar ECG</div></div>
+      <div class="flow-connector">↓ Alterações cardíacas?</div>
+      <div class="flow-step flow-indent"><div class="flow-box action">SIM → Gluconato de cálcio → Insulina + glicose → Monitorar potássio</div></div>
+      <div class="flow-connector flow-indent">↓ Sem melhora?</div>
+      <div class="flow-step flow-indent"><div class="flow-box action">Considerar diálise</div></div>
+    </div>
+
+    <div class="flowchart">
+      <div class="flowchart-title">Fluxograma 6 — Estadiamento da DRC</div>
+      <div class="flow-step"><div class="flow-box decision">Paciente com DRC</div></div>
+      <div class="flow-connector">↓</div>
+      <div class="flow-step"><div class="flow-box">Determinar creatinina → Classificar estágio IRIS</div></div>
+      <div class="flow-connector">↓</div>
+      <div class="flow-step"><div class="flow-box">Avaliar UPC → Subestadiar proteinúria</div></div>
+      <div class="flow-connector">↓</div>
+      <div class="flow-step"><div class="flow-box action">Mensurar pressão arterial → Subestadiar hipertensão → Definir plano terapêutico</div></div>
+    </div>
+
+    <div class="flowchart">
+      <div class="flowchart-title">Fluxograma 7 — Controle da hiperfosfatemia</div>
+      <div class="flow-step"><div class="flow-box">Dosar fósforo sérico</div></div>
+      <div class="flow-connector">↓ Fósforo elevado?</div>
+      <div class="flow-step flow-indent"><div class="flow-box">Introduzir dieta renal → Reavaliação</div></div>
+      <div class="flow-connector flow-indent">↓ Persistiu elevado?</div>
+      <div class="flow-step flow-indent"><div class="flow-box action">SIM → Adicionar quelante de fósforo → Monitorar periodicamente</div></div>
+    </div>
+
+    <div class="flowchart">
+      <div class="flowchart-title">Fluxograma 8 — Controle da proteinúria</div>
+      <div class="flow-step"><div class="flow-box">Realizar UPC</div></div>
+      <div class="flow-connector">↓ Proteinúrico?</div>
+      <div class="flow-step flow-indent"><div class="flow-box">SIM → Introduzir tratamento (IECA ou Telmisartana) → Reavaliação da UPC</div></div>
+      <div class="flow-connector flow-indent">↓ Redução da proteinúria?</div>
+      <div class="flow-step flow-indent"><div class="flow-box action">SIM → Monitorar | NÃO → Ajustar terapia</div></div>
+    </div>
+
+    <div class="flowchart">
+      <div class="flowchart-title">Fluxograma 10 — Quando considerar diálise ou nefrologia?</div>
+      <div class="flow-step"><div class="flow-box decision">Paciente renal com:</div></div>
+      <div class="flow-step flow-indent"><div class="flow-box">• Hipercalemia refratária · Anúria persistente · Síndrome urêmica grave · Sobrecarga hídrica</div></div>
+      <div class="flow-connector">↓</div>
+      <div class="flow-step"><div class="flow-box action">Considerar: nefrologista, centro de diálise, terapia renal substitutiva</div></div>
+    </div>
+  </section>
+
+  <!-- CAP 14 -->
+  <section class="chapter" id="cap14">
+    <div class="chapter-header">
+      <div class="chapter-num">Capítulo 14</div>
+      <h2 class="chapter-title">Resumo Prático</h2>
+      <div class="chapter-title-line"></div>
+    </div>
+
+    <p>Este capítulo reúne os principais conceitos abordados ao longo do eBook de forma resumida e objetiva, servindo como ferramenta de revisão e consulta rápida para estudantes e médicos-veterinários.</p>
+
+    <h3>Principais diferenças entre IRA e DRC</h3>
+    <div class="table-wrap"><table class="comparison-table">
+      <thead>
+        <tr><th>Característica</th><th>IRA</th><th>DRC</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Início</td><td>Súbito</td><td>Gradual</td></tr>
+        <tr><td>Evolução</td><td>Horas a dias</td><td>Meses a anos</td></tr>
+        <tr><td>Reversibilidade</td><td>Possível</td><td>Irreversível</td></tr>
+        <tr><td>Histórico clínico</td><td>Curto</td><td>Longo</td></tr>
+        <tr><td>Produção urinária</td><td>Oligúria ou anúria</td><td>Poliúria</td></tr>
+        <tr><td>Tamanho renal</td><td>Normal ou aumentado</td><td>Frequentemente reduzido</td></tr>
+        <tr><td>Anemia</td><td>Incomum</td><td>Comum</td></tr>
+        <tr><td>Hipertensão</td><td>Pode ocorrer</td><td>Muito frequente</td></tr>
+        <tr><td>Prognóstico</td><td>Variável</td><td>Progressivo</td></tr>
+      </tbody>
+    </table></div>
+
+    <div class="quick-ref-grid">
+      <div class="quick-card">
+        <h4>Suspeite de IRA quando houver</h4>
+        <ul>
+          <li>Instalação súbita dos sinais clínicos</li>
+          <li>Oligúria ou anúria</li>
+          <li>Hipercalemia</li>
+          <li>Exposição a toxinas</li>
+          <li>Obstrução uretral</li>
+          <li>Leptospirose</li>
+          <li>Uso recente de medicamentos nefrotóxicos</li>
+          <li>Desidratação severa</li>
+        </ul>
+      </div>
+      <div class="quick-card">
+        <h4>Suspeite de DRC quando houver</h4>
+        <ul>
+          <li>Histórico prolongado</li>
+          <li>Poliúria e polidipsia</li>
+          <li>Perda de peso progressiva</li>
+          <li>Hiporexia crônica</li>
+          <li>Hipertensão arterial</li>
+          <li>Anemia não regenerativa</li>
+          <li>Rins reduzidos na ultrassonografia</li>
+        </ul>
+      </div>
+      <div class="quick-card">
+        <h4>Exames indispensáveis</h4>
+        <ul>
+          <li>Hemograma completo</li>
+          <li>Ureia e creatinina</li>
+          <li>SDMA</li>
+          <li>Fósforo e potássio</li>
+          <li>Urinálise completa</li>
+          <li>UPC (proteína:creatinina urinária)</li>
+          <li>Pressão arterial</li>
+          <li>Ultrassonografia renal</li>
+        </ul>
+      </div>
+      <div class="quick-card">
+        <h4>Pilares do tratamento da DRC</h4>
+        <ul>
+          <li>Dieta renal</li>
+          <li>Controle da proteinúria (IECA/telmisartana)</li>
+          <li>Controle da hipertensão</li>
+          <li>Controle da hiperfosfatemia</li>
+          <li>Hidratação adequada</li>
+          <li>Controle da síndrome urêmica</li>
+          <li>Monitoramento periódico</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3>Cinco mensagens que todo clínico deve lembrar</h3>
+    <div class="five-messages">
+      <div class="msg-item">
+        <div class="msg-num">1</div>
+        <div class="msg-content">
+          <strong>Nem toda azotemia é doença renal.</strong>
+          <span>Sempre avaliar hidratação e perfusão antes de concluir.</span>
+        </div>
+      </div>
+      <div class="msg-item">
+        <div class="msg-num">2</div>
+        <div class="msg-content">
+          <strong>SDMA pode detectar alterações precoces.</strong>
+          <span>Não dependa apenas da creatinina para diagnóstico precoce.</span>
+        </div>
+      </div>
+      <div class="msg-item">
+        <div class="msg-num">3</div>
+        <div class="msg-content">
+          <strong>Proteinúria piora o prognóstico.</strong>
+          <span>Sempre realizar UPC quando possível.</span>
+        </div>
+      </div>
+      <div class="msg-item">
+        <div class="msg-num">4</div>
+        <div class="msg-content">
+          <strong>Dieta renal aumenta sobrevida.</strong>
+          <span>É uma das intervenções mais eficazes na DRC.</span>
+        </div>
+      </div>
+      <div class="msg-item">
+        <div class="msg-num">5</div>
+        <div class="msg-content">
+          <strong>O diagnóstico precoce muda tudo.</strong>
+          <span>Quanto mais cedo a doença renal for identificada, maiores as chances de preservar a função renal e melhorar a qualidade de vida do paciente.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CAP 15 -->
+  <section class="chapter" id="cap15">
+    <div class="chapter-header">
+      <div class="chapter-num">Capítulo 15</div>
+      <h2 class="chapter-title">Conclusão</h2>
+      <div class="chapter-title-line"></div>
+    </div>
+
+    <p>As doenças renais representam um dos maiores desafios da clínica médica de pequenos animais. Seja na forma aguda ou crônica, o comprometimento da função renal pode desencadear alterações sistêmicas importantes, impactando diretamente a saúde, o bem-estar e a expectativa de vida dos pacientes.</p>
+
+    <p>Ao longo deste eBook, vimos que a Injúria Renal Aguda (IRA) e a Doença Renal Crônica (DRC), embora compartilhem algumas manifestações clínicas, são enfermidades distintas em sua fisiopatologia, evolução, tratamento e prognóstico. Compreender essas diferenças é essencial para estabelecer diagnósticos precisos e implementar estratégias terapêuticas adequadas.</p>
+
+    <p>Também ficou evidente que a nefrologia veterinária moderna vai muito além da avaliação de ureia e creatinina. O uso integrado de ferramentas como SDMA, urinálise, relação proteína:creatinina urinária (UPC), mensuração da pressão arterial e exames de imagem permite identificar alterações renais de forma cada vez mais precoce, possibilitando intervenções antes que ocorram perdas irreversíveis da função renal.</p>
+
+    <p>Outro ponto fundamental é a compreensão de que o paciente renal deve ser avaliado de forma global. Alterações nutricionais, hipertensão arterial, proteinúria, distúrbios eletrolíticos, anemia e síndrome urêmica fazem parte de um conjunto de fatores que influenciam diretamente a evolução da doença e a qualidade de vida do animal. O sucesso terapêutico depende da capacidade do médico-veterinário de reconhecer e manejar cada um desses aspectos de forma integrada.</p>
+
+    <p>A prevenção e o diagnóstico precoce merecem destaque especial. Em muitos casos, os sinais clínicos tornam-se evidentes apenas quando uma parcela significativa da função renal já foi comprometida. Por isso, programas de monitoramento, especialmente em pacientes geriátricos e grupos de risco, devem fazer parte da rotina clínica. Exames periódicos simples podem permitir diagnósticos precoces e alterar significativamente o curso da doença.</p>
+
+    <p>Da mesma forma, a participação ativa dos tutores é indispensável. O acompanhamento domiciliar, a observação de mudanças comportamentais, a adesão às orientações nutricionais e medicamentosas e o comparecimento às reavaliações periódicas são fatores que influenciam diretamente nos resultados obtidos com o tratamento.</p>
+
+    <p>É importante lembrar que, embora muitas doenças renais sejam progressivas e algumas irreversíveis, o diagnóstico não deve ser encarado como uma sentença. Com acompanhamento adequado, inúmeros cães e gatos conseguem manter excelente qualidade de vida por meses ou até anos após o diagnóstico. O papel do médico-veterinário é justamente utilizar o conhecimento científico disponível para transformar informação em cuidado, promovendo conforto, bem-estar e longevidade aos seus pacientes.</p>
+
+    <div class="callout gold">
+      <p>A nefrologia é uma área em constante evolução. Novos biomarcadores, protocolos terapêuticos e estratégias de monitoramento continuam ampliando nossa capacidade de diagnosticar precocemente e tratar de forma mais eficiente os pacientes renais. Manter-se atualizado e desenvolver um raciocínio clínico sólido são atitudes fundamentais para qualquer profissional que deseja oferecer uma medicina veterinária de excelência.</p>
+    </div>
+  </section>
+
+</main>
+
+<script>
+  // Highlight active nav item on scroll
+  const chapters = document.querySelectorAll('.chapter');
+  const navItems = document.querySelectorAll('.nav-item');
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const id = entry.target.id;
+        navItems.forEach(item => {
+          item.classList.toggle('active', item.getAttribute('href') === '#' + id);
+        });
+      }
+    });
+  }, { rootMargin: '-10% 0px -80% 0px' });
+
+  chapters.forEach(ch => observer.observe(ch));
+
+  // Close sidebar on nav click (mobile)
+  navItems.forEach(item => {
+    item.addEventListener('click', () => {
+      closeSidebar();
+    });
+  });
+
+  // Sidebar open/close with backdrop (mobile)
+  function toggleSidebar() {
+    const sb = document.getElementById('sidebar');
+    const bd = document.getElementById('sidebar-backdrop');
+    const isOpen = sb.classList.toggle('open');
+    bd.classList.toggle('show', isOpen);
+  }
+  function closeSidebar() {
+    document.getElementById('sidebar').classList.remove('open');
+    document.getElementById('sidebar-backdrop').classList.remove('show');
+  }
+  // Fecha a barra lateral ao girar/redimensionar para desktop
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 900) closeSidebar();
+  });
+</script>
+</body>
+</html>
